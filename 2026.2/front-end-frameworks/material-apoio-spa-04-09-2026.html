@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>SPA na Prática — Material de Apoio | Front-End Frameworks</title>
+<style>
+:root {
+  --blue:#0b57d0;--blue2:#1a73e8;--ink:#1f1f1f;--muted:#5f6368;--line:#dadce0;
+  --soft:#f8fafd;--green:#137333;--greenbg:#e6f4ea;--orange:#b06000;--orangebg:#fef7e0;
+  --shadow:0 1px 2px #3c404326,0 1px 3px 1px #3c404326;--r:20px
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.62}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.topbar{position:fixed;z-index:50;top:0;left:0;right:0;height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 22px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-size:19px}
+.brand-mark{width:34px;height:34px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative}
+.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:white}
+.brand small{color:var(--muted);display:block;font-size:12px}
+.sidebar{position:fixed;z-index:40;top:68px;bottom:0;left:0;width:288px;background:#fff;padding:18px 12px 40px;overflow:auto;border-right:1px solid #f0f0f0}
+.nav-title{padding:8px 16px;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.nav-item{display:flex;gap:12px;align-items:center;width:100%;padding:10px 14px;border-radius:0 28px 28px 0;color:#3c4043;line-height:1.25;margin:2px 0}
+.nav-item:hover{background:#f1f3f4;text-decoration:none} .nav-item .num{font-size:12px;color:#777;width:22px}
+.content{margin-left:288px;padding:96px 32px 80px}
+.section{width:min(1100px,100%);margin:0 auto 72px;scroll-margin-top:90px}
+.eyebrow{color:var(--blue);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(38px,5vw,64px);line-height:1.06;letter-spacing:-.04em;margin:12px 0 20px}
+h2{font-size:clamp(28px,3.4vw,44px);line-height:1.15;letter-spacing:-.025em;margin:8px 0 16px}
+h3{font-size:22px;margin:26px 0 10px} .lead{font-size:clamp(20px,2vw,26px);color:#3c4043;max-width:900px}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:#fff}.card.blue{background:#edf4ff;border-color:#c2d7ff}.card.green{background:var(--greenbg);border-color:#b7dfbe}
+.callout{border-left:5px solid var(--blue2);background:#f8fafd;border-radius:4px 16px 16px 4px;padding:18px 22px;margin:20px 0}.callout strong{color:#174ea6}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0}.node{border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px 18px;min-width:120px;text-align:center;font-weight:700;box-shadow:0 1px 2px #0001}.arrow{color:var(--blue2);font-size:25px;font-weight:700}
+.code{background:#202124;color:#e8eaed;border-radius:18px;padding:18px 20px;overflow:auto;font:14px/1.65 Consolas,"Courier New",monospace;white-space:pre}.inline-code{font-family:Consolas,monospace;background:#f1f3f4;padding:2px 6px;border-radius:5px}
+.checklist{display:grid;gap:10px;margin:16px 0}.check{display:flex;gap:10px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fff}.check:before{content:"✓";color:var(--green);font-weight:800}
+.lab{background:#f8fbff;border:1px solid #c2d7ff;border-radius:22px;padding:24px}.question{padding:16px;border-radius:14px;background:#f1f3f4;margin:12px 0}.tip{padding:16px 18px;background:#fff7e6;border:1px solid #f4d799;border-radius:14px}.summary{background:linear-gradient(145deg,#edf4ff,#f8fafd);border:1px solid #c2d7ff;border-radius:24px;padding:28px}
+footer{color:var(--muted);font-size:14px;padding-top:30px;border-top:1px solid var(--line);margin-top:50px}
+@media(max-width:1000px){.sidebar{display:none}.content{margin-left:0}}@media(max-width:700px){body{font-size:16px}.content{padding:88px 14px 60px}.g2{grid-template-columns:1fr}h1{font-size:38px}h2{font-size:30px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="brand"><div class="brand-mark"></div><div><strong>Front-End Frameworks</strong><small>Material de apoio • UNINASSAU • 2026.2</small></div></div></header>
+<aside class="sidebar"><div class="nav-title">SPA na prática</div><a class="nav-item" href="#inicio"><span class="num">01</span>Visão geral</a><a class="nav-item" href="#conceito"><span class="num">02</span>O que é SPA?</a><a class="nav-item" href="#innerhtml"><span class="num">03</span>O que é innerHTML?</a><a class="nav-item" href="#vantagens"><span class="num">04</span>Vantagens</a><a class="nav-item" href="#codigo"><span class="num">05</span>Código completo</a><a class="nav-item" href="#comentado"><span class="num">06</span>Linhas comentadas</a><a class="nav-item" href="#fluxo"><span class="num">07</span>Fluxo da aplicação</a><a class="nav-item" href="#atividade"><span class="num">08</span>Atividade</a><a class="nav-item" href="#resumo"><span class="num">09</span>Resumo</a></aside>
+<main class="content">
+<section class="section" id="inicio"><div class="eyebrow">Material de apoio ao aluno</div><h1>Single Page Application — SPA na prática</h1><p class="lead">Neste material, vamos compreender a ideia central de uma SPA usando um exemplo completo em HTML, CSS e JavaScript.</p><div class="callout"><strong>Meta da aula:</strong> entender como uma única página HTML pode mostrar conteúdos diferentes sem abrir outro arquivo HTML a cada clique.</div></section>
+<section class="section" id="conceito"><div class="eyebrow">Conceito</div><h2>1. O que é uma SPA?</h2><p><strong>SPA</strong> significa <strong>Single Page Application</strong>, ou Aplicação de Página Única.</p><p>Em nosso exemplo didático, o navegador carrega uma página principal. Depois disso, o JavaScript altera somente a área de conteúdo que precisa mudar.</p><div class="flow"><div class="node">Usuário clica</div><div class="arrow">→</div><div class="node">JavaScript executa</div><div class="arrow">→</div><div class="node">Conteúdo muda</div></div><div class="card blue"><h3>Ideia que você deve guardar</h3><p><strong>O documento principal continua aberto; o JavaScript troca o que aparece dentro de uma área da página.</strong></p></div></section>
+<section class="section" id="innerhtml"><div class="eyebrow">Comando fundamental do exemplo</div><h2>2. O que significa <span class="inline-code">innerHTML</span>?</h2><p><span class="inline-code">innerHTML</span> é uma propriedade do JavaScript usada para ler ou substituir o conteúdo HTML que está <strong>dentro</strong> de um elemento.</p><div class="code">&lt;main id="app"&gt;
+  &lt;p&gt;Conteúdo inicial&lt;/p&gt;
+&lt;/main&gt;</div><p>Se executarmos:</p><div class="code">app.innerHTML = "&lt;h2&gt;Produtos&lt;/h2&gt;";</div><p>O resultado visual equivale a:</p><div class="code">&lt;main id="app"&gt;
+  &lt;h2&gt;Produtos&lt;/h2&gt;
+&lt;/main&gt;</div><div class="callout"><strong>inner</strong> = interno, dentro. <strong>HTML</strong> = conteúdo HTML. Portanto, <strong>innerHTML</strong> pode ser entendido como “o HTML que está dentro do elemento”.</div></section>
+<section class="section" id="vantagens"><div class="eyebrow">Por que isso é útil?</div><h2>3. Principais vantagens percebidas neste exemplo</h2><div class="grid g2"><div class="card green"><h3>Navegação fluida</h3><p>O usuário troca de conteúdo sem abrir um novo documento HTML.</p></div><div class="card green"><h3>Estrutura permanece</h3><p>Cabeçalho, menu e rodapé podem continuar visíveis enquanto somente o conteúdo principal muda.</p></div><div class="card green"><h3>Controle pelo JavaScript</h3><p>O JavaScript decide o que será exibido em resposta aos cliques do usuário.</p></div><div class="card green"><h3>Experiência mais dinâmica</h3><p>A aplicação se comporta de forma mais próxima de um aplicativo do que de uma sequência de páginas independentes.</p></div></div></section>
+<section class="section" id="codigo"><div class="eyebrow">Exemplo oficial da aula</div><h2>4. Código completo da Mini SPA</h2><p>Este será o exemplo-base utilizado na aula. Copie o código para um arquivo chamado <span class="inline-code">index.html</span>, abra-o no navegador e teste os três botões.</p><div class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;Mini SPA - Atividade Prática&lt;/title&gt;
+
+  &lt;style&gt;
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f4f4f4; color: #222; }
+    header { background: #111827; color: white; padding: 24px; text-align: center; }
+    nav { display: flex; justify-content: center; gap: 12px; padding: 20px; background: white; border-bottom: 1px solid #ddd; }
+    button { padding: 12px 20px; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer; font-size: 16px; }
+    button:hover { background: #1d4ed8; }
+    main { width: min(900px, 90%); margin: 30px auto; background: white; padding: 30px; border-radius: 12px; min-height: 300px; box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+    .card { padding: 16px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 12px; background: #fafafa; }
+    .destaque { margin-top: 24px; padding: 16px; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 6px; }
+    footer { text-align: center; padding: 20px; color: #666; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Mini SPA&lt;/h1&gt;
+    &lt;p&gt;Atividade prática de Front-End Frameworks&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;nav&gt;
+    &lt;button onclick="mostrarHome()"&gt;Home&lt;/button&gt;
+    &lt;button onclick="mostrarProdutos()"&gt;Produtos&lt;/button&gt;
+    &lt;button onclick="mostrarContato()"&gt;Contato&lt;/button&gt;
+  &lt;/nav&gt;
+
+  &lt;main id="app"&gt;&lt;/main&gt;
+
+  &lt;footer&gt;Single Page Application - Exemplo didático&lt;/footer&gt;
+
+  &lt;script&gt;
+    const app = document.getElementById("app");
+
+    function mostrarHome() {
+      app.innerHTML = `
+        &lt;h2&gt;Home&lt;/h2&gt;
+        &lt;p&gt;Bem-vindo à nossa Mini SPA.&lt;/p&gt;
+        &lt;p&gt;Observe que, ao clicar nos botões do menu, o navegador não recarrega a página inteira.&lt;/p&gt;
+        &lt;div class="destaque"&gt;&lt;strong&gt;Observe:&lt;/strong&gt; apenas o conteúdo dentro da área principal está sendo alterado.&lt;/div&gt;
+      `;
+    }
+
+    function mostrarProdutos() {
+      app.innerHTML = `
+        &lt;h2&gt;Produtos&lt;/h2&gt;
+        &lt;div class="card"&gt;&lt;h3&gt;Notebook&lt;/h3&gt;&lt;p&gt;Preço: R$ 3.500,00&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="card"&gt;&lt;h3&gt;Mouse&lt;/h3&gt;&lt;p&gt;Preço: R$ 80,00&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="card"&gt;&lt;h3&gt;Teclado&lt;/h3&gt;&lt;p&gt;Preço: R$ 150,00&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="destaque"&gt;Esta tela foi inserida pelo JavaScript sem carregar outro arquivo HTML.&lt;/div&gt;
+      `;
+    }
+
+    function mostrarContato() {
+      app.innerHTML = `
+        &lt;h2&gt;Contato&lt;/h2&gt;
+        &lt;p&gt;Entre em contato conosco:&lt;/p&gt;
+        &lt;div class="card"&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; contato@empresa.com&lt;/div&gt;
+        &lt;div class="card"&gt;&lt;strong&gt;Telefone:&lt;/strong&gt; (79) 99999-9999&lt;/div&gt;
+        &lt;div class="destaque"&gt;A estrutura principal da página continua a mesma. Apenas o conteúdo da tag &amp;lt;main&amp;gt; foi atualizado.&lt;/div&gt;
+      `;
+    }
+
+    mostrarHome();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div></section>
+<section class="section" id="comentado"><div class="eyebrow">Entendendo o código</div><h2>5. Principais linhas comentadas</h2><div class="grid g2"><div class="card"><h3>1. onclick</h3><div class="code">&lt;button onclick="mostrarProdutos()"&gt;</div><p>Quando o usuário clica, o navegador executa a função indicada.</p></div><div class="card"><h3>2. getElementById</h3><div class="code">document.getElementById("app")</div><p>Procura no HTML o elemento cujo id é <span class="inline-code">app</span>.</p></div><div class="card"><h3>3. innerHTML</h3><div class="code">app.innerHTML = `...`;</div><p>Troca o conteúdo que está dentro do elemento <span class="inline-code">#app</span>.</p></div><div class="card"><h3>4. mostrarHome()</h3><div class="code">mostrarHome();</div><p>Executa a função quando a página abre, evitando que a área principal comece vazia.</p></div></div></section>
+<section class="section" id="fluxo"><div class="eyebrow">Raciocínio</div><h2>6. O que acontece quando clicamos em Produtos?</h2><div class="flow"><div class="node">1. Clique em Produtos</div><div class="arrow">→</div><div class="node">2. mostrarProdutos()</div><div class="arrow">→</div><div class="node">3. innerHTML</div><div class="arrow">→</div><div class="node">4. #app muda</div></div><p>O cabeçalho, o menu, o rodapé e a própria tag <span class="inline-code">&lt;main id="app"&gt;</span> continuam existindo. O que muda é apenas o conteúdo interno do <span class="inline-code">main</span>.</p></section>
+<section class="section" id="atividade"><div class="eyebrow">Atividade prática</div><h2>7. Sua tarefa: ampliar a Mini SPA</h2><div class="lab"><p>Você deverá partir <strong>do código completo apresentado neste material</strong>. Não crie uma aplicação do zero.</p><h3>Parte 1 — crie um novo item de menu</h3><p>Adicione ao menu um quarto botão. O nome fica a sua escolha. Exemplos: Sobre, Serviços, Equipe, Clientes, Cursos ou Galeria.</p><div class="code">&lt;button onclick="mostrarSobre()"&gt;Sobre&lt;/button&gt;</div><h3>Parte 2 — crie uma nova tela</h3><p>Crie uma nova função JavaScript para o botão que você adicionou.</p><div class="code">function mostrarSobre() {
+  app.innerHTML = `
+    &lt;h2&gt;Sobre&lt;/h2&gt;
+    &lt;p&gt;Conteúdo criado pelo aluno.&lt;/p&gt;
+  `;
+}</div><h3>Requisitos</h3><div class="checklist"><div class="check">Manter Home, Produtos e Contato funcionando.</div><div class="check">Adicionar pelo menos um novo botão ao menu.</div><div class="check">Criar uma nova função JavaScript correspondente ao novo botão.</div><div class="check">Usar <span class="inline-code">app.innerHTML</span> para montar a nova tela.</div><div class="check">Adicionar conteúdo próprio à nova tela.</div><div class="check">Não criar outro arquivo HTML para a nova tela.</div></div><h3>Desafio extra</h3><p>Depois de criar a quarta opção, crie uma <strong>quinta opção de menu</strong> e uma quinta tela.</p><h3>Perguntas para entregar junto com a atividade</h3><div class="question"><strong>1.</strong> O que o <span class="inline-code">onclick</span> faz?</div><div class="question"><strong>2.</strong> Qual é a função de <span class="inline-code">document.getElementById("app")</span>?</div><div class="question"><strong>3.</strong> O que o <span class="inline-code">innerHTML</span> modifica?</div><div class="question"><strong>4.</strong> Por que a nova tela não precisa de um novo arquivo HTML?</div></div></section>
+<section class="section" id="resumo"><div class="eyebrow">Revisão</div><h2>8. Resumo da aula</h2><div class="summary"><div class="checklist"><div class="check">SPA significa <strong>Single Page Application</strong>.</div><div class="check">Nosso exemplo utiliza uma única página HTML.</div><div class="check">Os botões chamam funções JavaScript através de <span class="inline-code">onclick</span>.</div><div class="check"><span class="inline-code">getElementById("app")</span> encontra a área que será modificada.</div><div class="check"><span class="inline-code">innerHTML</span> substitui o conteúdo interno dessa área.</div><div class="check">Adicionar uma nova “tela” significa criar um novo botão e uma nova função, sem criar outro documento HTML.</div></div></div><footer>Front-End Frameworks • UNINASSAU • 2026.2<br>Material de apoio — SPA na prática.</footer></section>
+</main>
+</body>
+</html>
