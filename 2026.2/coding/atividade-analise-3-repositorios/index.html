@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Atividade — Análise de 3 Repositórios no GitHub</title>
+<style>
+:root{--blue:#0b57d0;--blue2:#1a73e8;--pale:#e8f0fe;--ink:#1f1f1f;--muted:#5f6368;--line:#dadce0;--surface:#fff;--soft:#f8fafd;--green:#137333;--greenbg:#e6f4ea;--orange:#b06000;--orangebg:#fef7e0;--shadow:0 1px 2px #3c404326,0 1px 3px 1px #3c404326;--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.55}a{color:inherit}.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:14px 22px}.topbar-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}.brand-mark{width:34px;height:34px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative}.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:white}.brand strong{display:block}.brand small{display:block;color:var(--muted);font-size:12px}.wrap{max-width:1100px;margin:0 auto;padding:42px 22px 70px}.eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}.hero{padding:34px;border:1px solid #d2e3fc;background:linear-gradient(145deg,#f8fafd,#e8f0fe);border-radius:28px;margin-bottom:24px}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 16px}.hero p{font-size:20px;color:#3c4043;max-width:900px;margin:0}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.badge{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;background:white;border:1px solid #c9d7ef;font-size:13px;font-weight:700;color:#174ea6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:#fff}.card.soft{background:var(--soft);border-color:transparent}.card.green{background:var(--greenbg);border-color:#b7dfbe}.card.orange{background:var(--orangebg);border-color:#f4d799}.card h2{font-size:25px;margin:0 0 10px}.card h3{font-size:19px;margin:0 0 6px}.card p{margin:6px 0;color:#4b4f52}.callout{border-left:5px solid var(--blue2);background:#f8fafd;border-radius:4px 16px 16px 4px;padding:18px 22px;margin:20px 0}.steps{display:grid;gap:12px;margin-top:16px}.step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:16px;background:white}.num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--blue);font-weight:800}.items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.item{border:1px solid var(--line);border-radius:15px;padding:15px;background:white}.item b{display:block;color:#174ea6;margin-bottom:4px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.action{border-radius:22px;padding:24px;text-decoration:none;border:1px solid var(--line);display:block;transition:.2s}.action:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.action.model{background:#edf4ff;border-color:#c2d7ff}.action.form{background:var(--greenbg);border-color:#b7dfbe}.action strong{font-size:22px;display:block;margin-bottom:5px}.button{display:inline-block;margin-top:14px;padding:11px 18px;border-radius:999px;background:var(--blue);color:white;font-weight:700;text-decoration:none}.form .button{background:var(--green)}.form-section{margin-top:28px}.form-section h2{font-size:30px;margin-bottom:8px}.form-wrap{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#f8fafd;min-height:780px}.form-wrap iframe{width:100%;height:1050px;border:0;background:white}.fallback{padding:16px;text-align:center;color:var(--muted);font-size:14px}.note{font-size:14px;color:var(--muted)}footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}.back{display:inline-block;margin-bottom:18px;color:var(--blue);text-decoration:none;font-weight:700}
+@media(max-width:760px){.wrap{padding:26px 14px 50px}.hero{padding:24px}.grid,.actions,.items{grid-template-columns:1fr}.hero h1{font-size:38px}.form-wrap iframe{height:1200px}.topbar{padding:12px 14px}}
+@media print{.topbar,.form-section{display:none}.wrap{max-width:none;padding:0}.hero,.card,.action{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div class="brand"><strong>Coding — 2026.2</strong><small>I Unidade • Atividade individual</small></div>
+  </div>
+</header>
+<main class="wrap">
+  <a class="back" href="../">← Voltar para Coding</a>
+
+  <section class="hero">
+    <div class="eyebrow">Atividade individual</div>
+    <h1>Análise de 3 Repositórios no GitHub</h1>
+    <p>Você deverá escolher três repositórios públicos diferentes no GitHub, observar as informações disponíveis em cada projeto e registrar sua análise usando suas próprias palavras.</p>
+    <div class="meta">
+      <span class="badge">Coding</span>
+      <span class="badge">I Unidade</span>
+      <span class="badge">3 repositórios públicos</span>
+      <span class="badge">Entrega pelo Google Forms</span>
+    </div>
+  </section>
+
+  <section class="grid">
+    <article class="card soft">
+      <h2>Objetivo</h2>
+      <p>Compreender como projetos reais são organizados no GitHub e identificar elementos importantes de um repositório, como README, commits, contribuidores, Issues e linguagem predominante.</p>
+    </article>
+    <article class="card orange">
+      <h2>Importante</h2>
+      <p>A atividade é <strong>individual</strong>. As respostas devem ser escritas com suas próprias palavras e baseadas no que você observar diretamente nos repositórios escolhidos.</p>
+    </article>
+  </section>
+
+  <div class="callout"><strong>Antes de começar:</strong> abra o Modelo de Entrega, faça uma cópia para sua conta e preencha somente os campos indicados no documento.</div>
+
+  <section class="card">
+    <h2>O que analisar em cada repositório</h2>
+    <div class="items">
+      <div class="item"><b>1. Identificação</b>Nome e link do repositório.</div>
+      <div class="item"><b>2. Finalidade</b>Explique para que serve o projeto e qual necessidade ele atende.</div>
+      <div class="item"><b>3. Proprietário</b>Identifique se é mantido por uma pessoa, organização ou empresa.</div>
+      <div class="item"><b>4. Linguagem</b>Informe a linguagem de programação predominante.</div>
+      <div class="item"><b>5. Commits</b>Registre a quantidade de commits no momento da consulta.</div>
+      <div class="item"><b>6. Contribuidores</b>Informe a quantidade ou os principais contribuidores visíveis.</div>
+      <div class="item"><b>7. README</b>Explique a função do arquivo e destaque duas informações importantes.</div>
+      <div class="item"><b>8. Issues</b>Escolha uma Issue aberta e explique o que está sendo discutido.</div>
+      <div class="item"><b>9. Um commit</b>Registre mensagem, autor, data e o que aparentemente foi alterado.</div>
+    </div>
+  </section>
+
+  <section class="card soft" style="margin-top:18px">
+    <h2>Como realizar a atividade</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div><h3>Escolha três repositórios</h3><p>Selecione três repositórios públicos diferentes no GitHub.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Faça a análise</h3><p>Observe os nove itens indicados acima em cada um dos três repositórios.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>Preencha o modelo</h3><p>Faça uma cópia do documento modelo e complete todos os campos marcados para preenchimento.</p></div></div>
+      <div class="step"><div class="num">4</div><div><h3>Envie pelo formulário</h3><p>Ao finalizar, utilize o formulário disponível no final desta mesma página para realizar a entrega.</p></div></div>
+    </div>
+  </section>
+
+  <section class="actions">
+    <a class="action model" href="https://docs.google.com/document/d/1RZ7xVOqPjHY1MFalxe2-XVq0PS2Jvm1lN9fPgAFYjy0/edit?usp=drivesdk" target="_blank" rel="noopener">
+      <strong>📄 Modelo de Entrega</strong>
+      <span>Abra o documento “Análise de 3 Repositórios no GitHub”, faça uma cópia e preencha sua atividade.</span><br>
+      <span class="button">Abrir modelo</span>
+    </a>
+    <a class="action form" href="https://docs.google.com/forms/d/1XPmrkzmJbHclRn7irJxGqI39RJ3XrJor25xAY1Z3pEU/viewform" target="_blank" rel="noopener">
+      <strong>✅ Enviar Atividade</strong>
+      <span>Use o Google Forms para fazer a entrega depois de concluir e revisar o documento.</span><br>
+      <span class="button">Abrir formulário</span>
+    </a>
+  </section>
+
+  <section class="form-section" id="entrega">
+    <div class="eyebrow">Entrega</div>
+    <h2>Formulário de envio</h2>
+    <p class="note">O formulário está incorporado abaixo para que toda a atividade fique concentrada nesta página. Se ele não carregar no seu navegador, use o botão “Abrir formulário” acima.</p>
+    <div class="form-wrap">
+      <iframe src="https://docs.google.com/forms/d/1XPmrkzmJbHclRn7irJxGqI39RJ3XrJor25xAY1Z3pEU/viewform?embedded=true" loading="lazy" title="Formulário de envio da atividade">Carregando…</iframe>
+      <div class="fallback">Caso o formulário não apareça, abra-o pelo botão de envio acima.</div>
+    </div>
+  </section>
+
+  <footer>Disciplina: Coding — 2026.2 • I Unidade</footer>
+</main>
+</body>
+</html>
