@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>17/09/2026 - Atividade Prática</title>
+<style>
+:root{--blue:#0b57d0;--ink:#1f1f1f;--muted:#5f6368;--line:#dadce0;--soft:#f8fafd;--green:#137333;--greenbg:#e6f4ea;--orange:#b06000;--orangebg:#fef7e0;--r:20px}*{box-sizing:border-box}body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.55}.topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;z-index:10}.wrap{max-width:1100px;margin:0 auto;padding:36px 24px 80px}.back{color:var(--blue);text-decoration:none}.eyebrow{color:var(--blue);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin:10px 0 16px}h2{font-size:30px;margin:34px 0 12px}.lead{font-size:22px;color:#3c4043;max-width:900px}.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:var(--r);padding:20px;background:#fff}.card.blue{background:#edf4ff;border-color:#c2d7ff}.card.green{background:var(--greenbg);border-color:#b7dfbe}.card.orange{background:var(--orangebg);border-color:#f4d799}.badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#d3e3fd;color:#0842a0;font-size:13px;font-weight:700}.callout{border-left:5px solid var(--blue);background:var(--soft);padding:18px 22px;border-radius:4px 16px 16px 4px;margin:18px 0}code,pre{font-family:Consolas,monospace}pre{background:#202124;color:#e8eaed;padding:18px;border-radius:16px;overflow:auto}.rules{counter-reset:item;padding:0;list-style:none}.rules li{counter-increment:item;border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 58px;margin:10px 0;position:relative}.rules li:before{content:counter(item);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;background:#d3e3fd;color:#0842a0;display:grid;place-items:center;font-weight:700}.table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}.table th,.table td{padding:14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{background:var(--soft)}.table tr:last-child td{border-bottom:0}@media(max-width:760px){.g2{grid-template-columns:1fr}.wrap{padding:28px 16px 60px}.table{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="back" href="../">← Desenvolvimento de Aplicações para Internet</a></div>
+<main class="wrap">
+<div class="eyebrow">Atividade prática — 17/09/2026</div>
+<h1>Página Web com HTML, CSS e JavaScript</h1>
+<p class="lead">Desenvolva uma aplicação simples aplicando os conteúdos já trabalhados em sala. Escolha <strong>uma</strong> das 10 regras de negócio e implemente a solução no navegador.</p>
+<div class="callout"><strong>Importante:</strong> nesta atividade não serão utilizados Node.js, API, Express ou banco de dados. O foco é praticar HTML, CSS, JavaScript, variáveis, funções, condicionais, objetos/arrays e interação básica com a página.</div>
+
+<h2>Objetivo</h2>
+<div class="grid g2">
+<div class="card blue"><strong>HTML</strong><p>Criar a estrutura da página com títulos, campos, botões e área de resultado.</p></div>
+<div class="card green"><strong>CSS</strong><p>Organizar visualmente a aplicação com cores, espaçamento, alinhamento e legibilidade.</p></div>
+<div class="card orange"><strong>JavaScript</strong><p>Capturar dados, executar a regra de negócio e mostrar o resultado ao usuário.</p></div>
+<div class="card"><strong>Lógica</strong><p>Utilizar funções, variáveis e decisões com <code>if/else</code> quando necessário.</p></div>
+</div>
+
+<h2>Requisitos obrigatórios</h2>
+<ol class="rules">
+<li>Criar uma pasta para o projeto.</li>
+<li>Utilizar arquivos separados: <code>index.html</code>, <code>style.css</code> e <code>script.js</code>.</li>
+<li>Criar uma interface com os campos necessários para a regra escolhida.</li>
+<li>Utilizar pelo menos uma função JavaScript criada pelo aluno.</li>
+<li>Utilizar variáveis para armazenar os dados informados.</li>
+<li>Utilizar <code>if/else</code> quando a regra escolhida exigir tomada de decisão.</li>
+<li>Exibir o resultado da operação na própria página.</li>
+<li>Validar campos vazios ou valores inválidos.</li>
+<li>Utilizar objeto ou array quando fizer sentido para organizar os dados.</li>
+<li>Testar a aplicação no navegador antes da entrega.</li>
+</ol>
+
+<h2>Escolha uma regra de negócio</h2>
+<table class="table">
+<tr><th>#</th><th>Regra</th><th>O que a aplicação deverá fazer</th></tr>
+<tr><td>1</td><td>Desconto em produto</td><td>Receber o preço e aplicar 10% de desconto quando o valor for maior que R$ 100.</td></tr>
+<tr><td>2</td><td>Situação do aluno</td><td>Receber duas notas, calcular a média e informar Aprovado ou Reprovado.</td></tr>
+<tr><td>3</td><td>Frete grátis</td><td>Receber o valor da compra e informar se o cliente possui frete grátis a partir de R$ 200.</td></tr>
+<tr><td>4</td><td>Classificação por idade</td><td>Receber a idade e classificar a pessoa por faixa etária.</td></tr>
+<tr><td>5</td><td>Controle de estoque</td><td>Receber estoque disponível e quantidade desejada e informar se a compra pode ser realizada.</td></tr>
+<tr><td>6</td><td>Desconto por quantidade</td><td>Calcular o total da compra e aplicar desconto quando forem compradas 5 ou mais unidades.</td></tr>
+<tr><td>7</td><td>Login simples</td><td>Comparar usuário e senha informados com valores previamente definidos e informar se o acesso foi permitido.</td></tr>
+<tr><td>8</td><td>Conversor de temperatura</td><td>Receber uma temperatura em Celsius e converter para Fahrenheit.</td></tr>
+<tr><td>9</td><td>Cálculo de IMC</td><td>Receber peso e altura, calcular o IMC e apresentar uma classificação simples.</td></tr>
+<tr><td>10</td><td>Orçamento de serviço</td><td>Receber quantidade de horas e valor por hora, calcular o total e aplicar desconto conforme a regra definida.</td></tr>
+</table>
+
+<h2>Estrutura esperada</h2>
+<pre>atividade-web/
+├── index.html
+├── style.css
+└── script.js</pre>
+
+<h2>Entrega</h2>
+<p>Entregar a pasta do projeto contendo os três arquivos. O código deverá funcionar ao abrir o <code>index.html</code> no navegador.</p>
+<span class="badge">Escolha apenas 1 das 10 regras</span>
+</main>
+</body>
+</html>
