@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Atividade — SPA Simples com HTML, CSS e JavaScript</title>
+<style>
+:root{--blue:#0b57d0;--blue2:#1a73e8;--pale:#e8f0fe;--ink:#1f1f1f;--muted:#5f6368;--line:#dadce0;--surface:#fff;--soft:#f8fafd;--green:#137333;--greenbg:#e6f4ea;--orange:#b06000;--orangebg:#fef7e0;--red:#b3261e;--redbg:#fce8e6;--shadow:0 1px 2px #3c404326,0 1px 3px 1px #3c404326;--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.55}a{color:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:14px 22px}.topbar-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}.brand-mark{width:34px;height:34px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative}.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:white}.brand strong{display:block}.brand small{display:block;color:var(--muted);font-size:12px}
+.wrap{max-width:1100px;margin:0 auto;padding:42px 22px 70px}.eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.hero{padding:34px;border:1px solid #d2e3fc;background:linear-gradient(145deg,#f8fafd,#e8f0fe);border-radius:28px;margin-bottom:24px}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 16px}.hero p{font-size:20px;color:#3c4043;max-width:900px;margin:0}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.badge{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;background:white;border:1px solid #c9d7ef;font-size:13px;font-weight:700;color:#174ea6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:#fff}.card.soft{background:var(--soft);border-color:transparent}.card.green{background:var(--greenbg);border-color:#b7dfbe}.card.orange{background:var(--orangebg);border-color:#f4d799}.card.blue{background:#edf4ff;border-color:#c2d7ff}.card h2{font-size:25px;margin:0 0 10px}.card h3{font-size:19px;margin:0 0 6px}.card p{margin:6px 0;color:#4b4f52}
+.callout{border-left:5px solid var(--blue2);background:#f8fafd;border-radius:4px 16px 16px 4px;padding:18px 22px;margin:20px 0}
+.steps{display:grid;gap:12px;margin-top:16px}.step{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:16px;background:white}.num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--blue);font-weight:800}
+.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.item{border:1px solid var(--line);border-radius:15px;padding:15px;background:white}.item b{display:block;color:#174ea6;margin-bottom:4px}
+.button,button.button{display:inline-block;margin-top:14px;padding:11px 18px;border-radius:999px;background:var(--blue);color:white;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15px}.button.secondary{background:white;color:var(--blue);border:1px solid #b8cdf0}.button.green{background:var(--green)}.button.red{background:var(--red)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.demo-wrap{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#f8fafd}.demo-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:#fff}.demo-frame{width:100%;height:680px;border:0;background:white;display:block}
+.code-wrap{border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:18px}.code-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:#f8fafd;border-bottom:1px solid var(--line)}pre{margin:0;background:#202124;color:#e8eaed;padding:20px;overflow:auto;max-height:680px;font:13px/1.55 Consolas,"Courier New",monospace;white-space:pre}
+.folder{background:#202124;color:#e8eaed;padding:18px 20px;border-radius:16px;font:15px/1.6 Consolas,monospace;white-space:pre-wrap}.checklist{display:grid;gap:10px;margin:16px 0}.check{display:flex;gap:10px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fff}.check:before{content:"✓";color:var(--green);font-weight:800}
+.note{font-size:14px;color:var(--muted)}footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}.back{display:inline-block;margin-bottom:18px;color:var(--blue);text-decoration:none;font-weight:700}.section-title{font-size:30px;margin:34px 0 10px}.toast{position:fixed;right:22px;bottom:22px;background:#202124;color:#fff;padding:12px 18px;border-radius:10px;z-index:100;opacity:0;transform:translateY(8px);transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:none}
+@media(max-width:760px){.wrap{padding:26px 14px 50px}.hero{padding:24px}.grid,.items{grid-template-columns:1fr}.hero h1{font-size:38px}.demo-frame{height:760px}.topbar{padding:12px 14px}}
+@media print{.topbar,.demo-wrap,.code-wrap,.toolbar{display:none}.wrap{max-width:none;padding:0}.hero,.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand-mark" aria-hidden="true"></div><div class="brand"><strong>Front-End Frameworks — 2026.2</strong><small>I Unidade • Atividade prática individual</small></div></div></header>
+<main class="wrap">
+<a class="back" href="../">← Voltar para Front-End Frameworks</a>
+
+<section class="hero">
+<div class="eyebrow">Atividade prática</div>
+<h1>Construção de uma SPA Simples</h1>
+<p>Você receberá uma aplicação pronta em um único arquivo HTML. A partir dela, deverá escolher um estudo de caso, adaptar o sistema e depois organizar o código em arquivos separados.</p>
+<div class="meta"><span class="badge">SPA</span><span class="badge">DOM</span><span class="badge">Eventos</span><span class="badge">JavaScript</span><span class="badge">Organização de arquivos</span></div>
+</section>
+
+<section class="grid">
+<article class="card soft"><h2>Objetivo</h2><p>Praticar a construção de uma SPA simples, manipular o DOM com JavaScript, trabalhar com eventos e compreender a separação entre estrutura HTML, apresentação CSS e comportamento JavaScript.</p></article>
+<article class="card orange"><h2>Importante</h2><p>Não será utilizado banco de dados. Os dados poderão permanecer apenas em um <strong>array JavaScript</strong> enquanto a página estiver aberta.</p></article>
+</section>
+
+<div class="callout"><strong>Ponto de partida:</strong> abaixo existe uma SPA completa de Cadastro de Alunos. Você pode executá-la dentro desta própria página e, em seguida, copiar todo o código-fonte para iniciar sua atividade.</div>
+
+<h2 class="section-title">1. Teste a SPA de exemplo</h2>
+<p>Use a aplicação abaixo normalmente. Cadastre alunos, navegue entre as telas e exclua registros. Observe que a página principal da atividade não é recarregada e a SPA funciona isoladamente dentro da demonstração.</p>
+<section class="demo-wrap">
+<div class="demo-head"><div><strong>SPA — Cadastro de Alunos</strong><div class="note">Demonstração executada em um iframe interno.</div></div><div class="toolbar"><button class="button" onclick="executarSpa()">Executar / Reiniciar SPA</button><button class="button secondary" onclick="limparSpa()">Limpar demonstração</button></div></div>
+<iframe id="spaFrame" class="demo-frame" sandbox="allow-scripts allow-forms" title="Demonstração da SPA de Cadastro de Alunos"></iframe>
+</section>
+
+<h2 class="section-title">2. Escolha um estudo de caso</h2>
+<p>Escolha <strong>apenas um</strong> dos casos abaixo e adapte o sistema de exemplo para o tema selecionado.</p>
+<section class="items">
+<div class="item"><b>1. Lista de Tarefas</b>Cadastrar, listar, concluir e excluir tarefas.</div>
+<div class="item"><b>2. Catálogo de Filmes</b>Exibir filmes, detalhes e favoritos.</div>
+<div class="item"><b>3. Cardápio de Restaurante</b>Listar pratos e adicionar itens a um pedido.</div>
+<div class="item"><b>4. Cadastro de Alunos</b>Cadastrar, listar e excluir alunos.</div>
+<div class="item"><b>5. Catálogo de Jogos</b>Exibir jogos e marcar favoritos.</div>
+<div class="item"><b>6. Agenda de Contatos</b>Cadastrar, listar e excluir contatos.</div>
+<div class="item"><b>7. Biblioteca de Livros</b>Cadastrar livros e alterar disponível/emprestado.</div>
+<div class="item"><b>8. Loja Simples</b>Listar produtos e adicionar/remover do carrinho.</div>
+<div class="item"><b>9. Sistema de Notas</b>Cadastrar notas e exibir média ou situação.</div>
+<div class="item"><b>10. Gerenciador de Eventos</b>Cadastrar eventos e participantes.</div>
+</section>
+
+<h2 class="section-title">3. Adapte a aplicação</h2>
+<section class="card soft">
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Escolha o tema</h3><p>Selecione um dos dez estudos de caso e altere títulos, textos, campos e informações exibidas.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Mantenha a ideia de SPA</h3><p>A aplicação deve possuir uma tela inicial, uma tela de cadastro ou inserção, uma tela de listagem e uma tela Sobre ou equivalente, sem criar um novo HTML para cada tela.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Manipule o DOM</h3><p>Use JavaScript para trocar o conteúdo principal da aplicação, responder aos cliques e atualizar a listagem.</p></div></div>
+<div class="step"><div class="num">4</div><div><h3>Armazene em memória</h3><p>Use um array JavaScript para guardar os dados durante a execução. Não é necessário banco de dados.</p></div></div>
+</div>
+</section>
+
+<h2 class="section-title">4. Organize os arquivos</h2>
+<p>O código fornecido está propositalmente em um único arquivo. Depois de entender e adaptar a aplicação, você deverá separar cada responsabilidade.</p>
+<div class="folder">projeto-spa/
+│
+├── index.html
+│
+├── css/
+│   └── style.css
+│
+└── js/
+    └── app.js</div>
+<section class="grid" style="margin-top:18px">
+<article class="card blue"><h2>index.html</h2><p>Deve ficar com a estrutura HTML. Remova o conteúdo das tags <code>&lt;style&gt;</code> e <code>&lt;script&gt;</code> e faça as referências aos arquivos externos.</p></article>
+<article class="card green"><h2>css/style.css</h2><p>Mova para este arquivo todo o CSS que estava dentro da tag <code>&lt;style&gt;</code>.</p></article>
+<article class="card orange"><h2>js/app.js</h2><p>Mova para este arquivo todo o JavaScript que estava dentro da tag <code>&lt;script&gt;</code>.</p></article>
+<article class="card soft"><h2>Teste novamente</h2><p>Depois da separação, abra o <code>index.html</code> e confirme que cadastro, navegação, listagem e exclusão continuam funcionando.</p></article>
+</section>
+
+<h2 class="section-title">5. Código-fonte para começar</h2>
+<p>Copie o código completo abaixo, crie um arquivo <code>index.html</code> em sua máquina e faça o primeiro teste antes de modificar qualquer coisa.</p>
+<div class="toolbar"><button class="button" onclick="copiarCodigo()">Copiar todo o código</button><button class="button secondary" onclick="executarSpa()">Executar novamente</button></div>
+<section class="code-wrap">
+<div class="code-head"><strong>template_spa_atividade.html</strong><span class="note">HTML + CSS + JavaScript no mesmo arquivo</span></div>
+<pre id="codigoFonte"></pre>
+</section>
+
+<h2 class="section-title">6. Requisitos mínimos</h2>
+<section class="card">
+<div class="checklist">
+<div class="check">Escolher um dos 10 estudos de caso.</div>
+<div class="check">Adaptar o template para o tema escolhido.</div>
+<div class="check">Possuir uma tela inicial e pelo menos três outras telas ou áreas.</div>
+<div class="check">Navegar entre as telas sem recarregar a página.</div>
+<div class="check">Manipular o DOM utilizando JavaScript.</div>
+<div class="check">Possuir pelo menos um formulário.</div>
+<div class="check">Armazenar os dados temporariamente em um array.</div>
+<div class="check">Exibir dinamicamente os dados cadastrados.</div>
+<div class="check">Possuir pelo menos uma ação sobre os dados, como excluir, concluir, favoritar ou alterar status.</div>
+<div class="check">Separar corretamente HTML, CSS e JavaScript no final.</div>
+</div>
+</section>
+
+<h2 class="section-title">7. Entrega</h2>
+<section class="card green">
+<h2>Estrutura obrigatória</h2>
+<p>Entregue a pasta completa do projeto. A aplicação deverá iniciar pelo arquivo <strong>index.html</strong> e funcionar depois da separação dos arquivos.</p>
+<div class="folder">index.html
+css/style.css
+js/app.js</div>
+</section>
+
+<footer>Disciplina: Front-End Frameworks — 2026.2 • I Unidade • Atividade prática de SPA</footer>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const codigoBase64 = "PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9InB0LUJSIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiIC8+CiAgPHRpdGxlPlNQQSAtIENhZGFzdHJvIGRlIEFsdW5vczwvdGl0bGU+CiAgPHN0eWxlPgogICAgKiB7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH0KCiAgICBib2R5IHsKICAgICAgbWFyZ2luOiAwOwogICAgICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjsKICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjsKICAgICAgY29sb3I6ICMyMjI7CiAgICB9CgogICAgaGVhZGVyIHsKICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZGQ7CiAgICAgIGJhY2tncm91bmQ6ICNmZmY7CiAgICB9CgogICAgbmF2IHsKICAgICAgbWF4LXdpZHRoOiA5MDBweDsKICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGdhcDogMTBweDsKICAgICAgcGFkZGluZzogMTZweCAyMHB4OwogICAgICBmbGV4LXdyYXA6IHdyYXA7CiAgICB9CgogICAgbmF2IGJ1dHRvbiB7CiAgICAgIGJvcmRlcjogMDsKICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICAgIHBhZGRpbmc6IDEwcHggMTRweDsKICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICBmb250LXNpemU6IDE1cHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIH0KCiAgICBuYXYgYnV0dG9uOmhvdmVyLAogICAgbmF2IGJ1dHRvbi5hdGl2byB7CiAgICAgIGJhY2tncm91bmQ6ICNmMGYwZjA7CiAgICB9CgogICAgbWFpbiB7CiAgICAgIG1heC13aWR0aDogOTAwcHg7CiAgICAgIG1hcmdpbjogMCBhdXRvOwogICAgICBwYWRkaW5nOiA0MHB4IDIwcHg7CiAgICB9CgogICAgaDEgewogICAgICBtYXJnaW4tdG9wOiAwOwogICAgICBmb250LXNpemU6IDMwcHg7CiAgICB9CgogICAgcCB7CiAgICAgIGxpbmUtaGVpZ2h0OiAxLjY7CiAgICB9CgogICAgLmFjb2VzIHsKICAgICAgbWFyZ2luLXRvcDogMjRweDsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAgZ2FwOiAxMHB4OwogICAgICBmbGV4LXdyYXA6IHdyYXA7CiAgICB9CgogICAgLmJvdGFvIHsKICAgICAgYm9yZGVyOiAxcHggc29saWQgIzIyMjsKICAgICAgYmFja2dyb3VuZDogIzIyMjsKICAgICAgY29sb3I6IHdoaXRlOwogICAgICBwYWRkaW5nOiAxMHB4IDE2cHg7CiAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgYm9yZGVyLXJhZGl1czogNnB4OwogICAgfQoKICAgIC5ib3Rhby5zZWN1bmRhcmlvIHsKICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgIGNvbG9yOiAjMjIyOwogICAgfQoKICAgIGZvcm0gewogICAgICBtYXgtd2lkdGg6IDUwMHB4OwogICAgfQoKICAgIC5jYW1wbyB7CiAgICAgIG1hcmdpbi1ib3R0b206IDE2cHg7CiAgICB9CgogICAgbGFiZWwgewogICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgIG1hcmdpbi1ib3R0b206IDZweDsKICAgIH0KCiAgICBpbnB1dCB7CiAgICAgIHdpZHRoOiAxMDAlOwogICAgICBwYWRkaW5nOiAxMHB4OwogICAgICBib3JkZXI6IDFweCBzb2xpZCAjYmJiOwogICAgICBib3JkZXItcmFkaXVzOiA2cHg7CiAgICAgIGZvbnQtc2l6ZTogMTVweDsKICAgIH0KCiAgICB0YWJsZSB7CiAgICAgIHdpZHRoOiAxMDAlOwogICAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOwogICAgICBtYXJnaW4tdG9wOiAyMHB4OwogICAgfQoKICAgIHRoLCB0ZCB7CiAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICAgIHBhZGRpbmc6IDEycHg7CiAgICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGRkOwogICAgfQoKICAgIHRoIHsKICAgICAgYmFja2dyb3VuZDogI2Y3ZjdmNzsKICAgIH0KCiAgICAuZXhjbHVpciB7CiAgICAgIGJvcmRlcjogMXB4IHNvbGlkICNjMzM7CiAgICAgIGNvbG9yOiAjYzMzOwogICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTsKICAgICAgcGFkZGluZzogN3B4IDEwcHg7CiAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgfQoKICAgIC5tZW5zYWdlbSB7CiAgICAgIG1hcmdpbi10b3A6IDE0cHg7CiAgICAgIHBhZGRpbmc6IDEwcHg7CiAgICAgIGJhY2tncm91bmQ6ICNmNGY0ZjQ7CiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIH0KCiAgICAudmF6aW8gewogICAgICBtYXJnaW4tdG9wOiAyMHB4OwogICAgICBwYWRkaW5nOiAyMHB4OwogICAgICBib3JkZXI6IDFweCBkYXNoZWQgI2JiYjsKICAgICAgYm9yZGVyLXJhZGl1czogNnB4OwogICAgICBjb2xvcjogIzY2NjsKICAgIH0KCiAgICAuY29udGFkb3IgewogICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgIGNvbG9yOiAjNjY2OwogICAgfQogIDwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CiAgPGhlYWRlcj4KICAgIDxuYXY+CiAgICAgIDxidXR0b24gZGF0YS1yb3RhPSJpbmljaW8iIGNsYXNzPSJhdGl2byI+SW7DrWNpbzwvYnV0dG9uPgogICAgICA8YnV0dG9uIGRhdGEtcm90YT0iY2FkYXN0cm8iPkNhZGFzdHJhciBBbHVubzwvYnV0dG9uPgogICAgICA8YnV0dG9uIGRhdGEtcm90YT0ibGlzdGEiPkxpc3RhIGRlIEFsdW5vczwvYnV0dG9uPgogICAgICA8YnV0dG9uIGRhdGEtcm90YT0ic29icmUiPlNvYnJlPC9idXR0b24+CiAgICA8L25hdj4KICA8L2hlYWRlcj4KCiAgPG1haW4gaWQ9ImFwcCI+PC9tYWluPgoKICA8c2NyaXB0PgogICAgLy8gT3MgZGFkb3MgZmljYW0gYXBlbmFzIG5hIG1lbcOzcmlhLgogICAgLy8gU2UgYSBww6FnaW5hIGZvciBhdHVhbGl6YWRhLCBlbGVzIHNlcsOjbyBhcGFnYWRvcy4KICAgIGNvbnN0IGFsdW5vcyA9IFtdOwoKICAgIGNvbnN0IGFwcCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiNhcHAiKTsKICAgIGNvbnN0IGJvdG9lc01lbnUgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJuYXYgYnV0dG9uIik7CgogICAgZnVuY3Rpb24gbWFyY2FyTWVudUF0aXZvKHJvdGEpIHsKICAgICAgYm90b2VzTWVudS5mb3JFYWNoKGJvdGFvID0+IHsKICAgICAgICBib3Rhby5jbGFzc0xpc3QudG9nZ2xlKCJhdGl2byIsIGJvdGFvLmRhdGFzZXQucm90YSA9PT0gcm90YSk7CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIGlyUGFyYShyb3RhKSB7CiAgICAgIG1hcmNhck1lbnVBdGl2byhyb3RhKTsKCiAgICAgIGlmIChyb3RhID09PSAiaW5pY2lvIikgbW9zdHJhckluaWNpbygpOwogICAgICBpZiAocm90YSA9PT0gImNhZGFzdHJvIikgbW9zdHJhckNhZGFzdHJvKCk7CiAgICAgIGlmIChyb3RhID09PSAibGlzdGEiKSBtb3N0cmFyTGlzdGEoKTsKICAgICAgaWYgKHJvdGEgPT09ICJzb2JyZSIpIG1vc3RyYXJTb2JyZSgpOwogICAgfQoKICAgIGZ1bmN0aW9uIG1vc3RyYXJJbmljaW8oKSB7CiAgICAgIGFwcC5pbm5lckhUTUwgPSBgCiAgICAgICAgPGgxPlNpc3RlbWEgZGUgQ2FkYXN0cm8gZGUgQWx1bm9zPC9oMT4KICAgICAgICA8cD4KICAgICAgICAgIEVzdGUgw6kgdW0gZXhlbXBsbyBzaW1wbGVzIGRlIFNQQSBmZWl0YSBjb20gSFRNTCwgQ1NTIGUgSmF2YVNjcmlwdC4KICAgICAgICAgIEEgbmF2ZWdhw6fDo28gYWNvbnRlY2Ugc2VtIHJlY2FycmVnYXIgYSBww6FnaW5hLgogICAgICAgIDwvcD4KCiAgICAgICAgPHA+CiAgICAgICAgICBPcyBhbHVub3MgY2FkYXN0cmFkb3MgZmljYW0gdGVtcG9yYXJpYW1lbnRlIGd1YXJkYWRvcyBlbSB1bSBhcnJheSBKYXZhU2NyaXB0LgogICAgICAgIDwvcD4KCiAgICAgICAgPGRpdiBjbGFzcz0iY29udGFkb3IiPgogICAgICAgICAgQWx1bm9zIGNhZGFzdHJhZG9zIG5lc3RhIHNlc3PDo286IDxzdHJvbmc+JHthbHVub3MubGVuZ3RofTwvc3Ryb25nPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8ZGl2IGNsYXNzPSJhY29lcyI+CiAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJib3RhbyIgaWQ9ImJ0bkNhZGFzdHJhciI+Q2FkYXN0cmFyIGFsdW5vPC9idXR0b24+CiAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJib3RhbyBzZWN1bmRhcmlvIiBpZD0iYnRuVmVyQWx1bm9zIj5WZXIgYWx1bm9zPC9idXR0b24+CiAgICAgICAgPC9kaXY+CiAgICAgIGA7CgogICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjYnRuQ2FkYXN0cmFyIikKICAgICAgICAuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCAoKSA9PiBpclBhcmEoImNhZGFzdHJvIikpOwoKICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI2J0blZlckFsdW5vcyIpCiAgICAgICAgLmFkZEV2ZW50TGlzdGVuZXIoImNsaWNrIiwgKCkgPT4gaXJQYXJhKCJsaXN0YSIpKTsKICAgIH0KCiAgICBmdW5jdGlvbiBtb3N0cmFyQ2FkYXN0cm8oKSB7CiAgICAgIGFwcC5pbm5lckhUTUwgPSBgCiAgICAgICAgPGgxPkNhZGFzdHJhciBBbHVubzwvaDE+CgogICAgICAgIDxmb3JtIGlkPSJmb3JtQWx1bm8iPgogICAgICAgICAgPGRpdiBjbGFzcz0iY2FtcG8iPgogICAgICAgICAgICA8bGFiZWwgZm9yPSJub21lIj5Ob21lPC9sYWJlbD4KICAgICAgICAgICAgPGlucHV0IGlkPSJub21lIiB0eXBlPSJ0ZXh0IiBwbGFjZWhvbGRlcj0iRGlnaXRlIG8gbm9tZSBkbyBhbHVubyIgcmVxdWlyZWQgLz4KICAgICAgICAgIDwvZGl2PgoKICAgICAgICAgIDxkaXYgY2xhc3M9ImNhbXBvIj4KICAgICAgICAgICAgPGxhYmVsIGZvcj0iY3Vyc28iPkN1cnNvPC9sYWJlbD4KICAgICAgICAgICAgPGlucHV0IGlkPSJjdXJzbyIgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IkRpZ2l0ZSBvIGN1cnNvIiByZXF1aXJlZCAvPgogICAgICAgICAgPC9kaXY+CgogICAgICAgICAgPGRpdiBjbGFzcz0iY2FtcG8iPgogICAgICAgICAgICA8bGFiZWwgZm9yPSJtYXRyaWN1bGEiPk1hdHLDrWN1bGE8L2xhYmVsPgogICAgICAgICAgICA8aW5wdXQgaWQ9Im1hdHJpY3VsYSIgdHlwZT0idGV4dCIgcGxhY2Vob2xkZXI9IkRpZ2l0ZSBhIG1hdHLDrWN1bGEiIHJlcXVpcmVkIC8+CiAgICAgICAgICA8L2Rpdj4KCiAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJib3RhbyIgdHlwZT0ic3VibWl0Ij5TYWx2YXIgYWx1bm88L2J1dHRvbj4KICAgICAgICAgIDxkaXYgaWQ9Im1lbnNhZ2VtIj48L2Rpdj4KICAgICAgICA8L2Zvcm0+CiAgICAgIGA7CgogICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjZm9ybUFsdW5vIikuYWRkRXZlbnRMaXN0ZW5lcigic3VibWl0IiwgZnVuY3Rpb24oZXZlbnRvKSB7CiAgICAgICAgZXZlbnRvLnByZXZlbnREZWZhdWx0KCk7CgogICAgICAgIGNvbnN0IG5vbWUgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjbm9tZSIpLnZhbHVlLnRyaW0oKTsKICAgICAgICBjb25zdCBjdXJzbyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiNjdXJzbyIpLnZhbHVlLnRyaW0oKTsKICAgICAgICBjb25zdCBtYXRyaWN1bGEgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjbWF0cmljdWxhIikudmFsdWUudHJpbSgpOwoKICAgICAgICBhbHVub3MucHVzaCh7CiAgICAgICAgICBub21lLAogICAgICAgICAgY3Vyc28sCiAgICAgICAgICBtYXRyaWN1bGEKICAgICAgICB9KTsKCiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI21lbnNhZ2VtIikuaW5uZXJIVE1MID0KICAgICAgICAgIGA8ZGl2IGNsYXNzPSJtZW5zYWdlbSI+QWx1bm8gY2FkYXN0cmFkbyBjb20gc3VjZXNzby48L2Rpdj5gOwoKICAgICAgICBldmVudG8udGFyZ2V0LnJlc2V0KCk7CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIG1vc3RyYXJMaXN0YSgpIHsKICAgICAgYXBwLmlubmVySFRNTCA9IGAKICAgICAgICA8aDE+TGlzdGEgZGUgQWx1bm9zPC9oMT4KICAgICAgICA8cD5Fc3RhIHRhYmVsYSDDqSBjcmlhZGEgZGluYW1pY2FtZW50ZSBwZWxvIEphdmFTY3JpcHQgYSBwYXJ0aXIgZG8gYXJyYXkgZGUgYWx1bm9zLjwvcD4KICAgICAgICA8ZGl2IGlkPSJjb250ZXVkb0xpc3RhIj48L2Rpdj4KICAgICAgYDsKCiAgICAgIHJlbmRlcml6YXJUYWJlbGEoKTsKICAgIH0KCiAgICBmdW5jdGlvbiByZW5kZXJpemFyVGFiZWxhKCkgewogICAgICBjb25zdCBjb250ZXVkbyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiNjb250ZXVkb0xpc3RhIik7CgogICAgICBpZiAoYWx1bm9zLmxlbmd0aCA9PT0gMCkgewogICAgICAgIGNvbnRldWRvLmlubmVySFRNTCA9IGAKICAgICAgICAgIDxkaXYgY2xhc3M9InZhemlvIj4KICAgICAgICAgICAgTmVuaHVtIGFsdW5vIGNhZGFzdHJhZG8gYWluZGEuCiAgICAgICAgICA8L2Rpdj4KICAgICAgICBgOwogICAgICAgIHJldHVybjsKICAgICAgfQoKICAgICAgbGV0IGxpbmhhcyA9ICIiOwoKICAgICAgYWx1bm9zLmZvckVhY2goKGFsdW5vLCBpbmRpY2UpID0+IHsKICAgICAgICBsaW5oYXMgKz0gYAogICAgICAgICAgPHRyPgogICAgICAgICAgICA8dGQ+JHthbHVuby5ub21lfTwvdGQ+CiAgICAgICAgICAgIDx0ZD4ke2FsdW5vLmN1cnNvfTwvdGQ+CiAgICAgICAgICAgIDx0ZD4ke2FsdW5vLm1hdHJpY3VsYX08L3RkPgogICAgICAgICAgICA8dGQ+CiAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZXhjbHVpciIgZGF0YS1pbmRpY2U9IiR7aW5kaWNlfSI+RXhjbHVpcjwvYnV0dG9uPgogICAgICAgICAgICA8L3RkPgogICAgICAgICAgPC90cj4KICAgICAgICBgOwogICAgICB9KTsKCiAgICAgIGNvbnRldWRvLmlubmVySFRNTCA9IGAKICAgICAgICA8dGFibGU+CiAgICAgICAgICA8dGhlYWQ+CiAgICAgICAgICAgIDx0cj4KICAgICAgICAgICAgICA8dGg+Tm9tZTwvdGg+CiAgICAgICAgICAgICAgPHRoPkN1cnNvPC90aD4KICAgICAgICAgICAgICA8dGg+TWF0csOtY3VsYTwvdGg+CiAgICAgICAgICAgICAgPHRoPkHDp8O1ZXM8L3RoPgogICAgICAgICAgICA8L3RyPgogICAgICAgICAgPC90aGVhZD4KICAgICAgICAgIDx0Ym9keT4KICAgICAgICAgICAgJHtsaW5oYXN9CiAgICAgICAgICA8L3Rib2R5PgogICAgICAgIDwvdGFibGU+CiAgICAgIGA7CgogICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCIuZXhjbHVpciIpLmZvckVhY2goYm90YW8gPT4gewogICAgICAgIGJvdGFvLmFkZEV2ZW50TGlzdGVuZXIoImNsaWNrIiwgZnVuY3Rpb24oKSB7CiAgICAgICAgICBjb25zdCBpbmRpY2UgPSBOdW1iZXIodGhpcy5kYXRhc2V0LmluZGljZSk7CiAgICAgICAgICBhbHVub3Muc3BsaWNlKGluZGljZSwgMSk7CiAgICAgICAgICByZW5kZXJpemFyVGFiZWxhKCk7CiAgICAgICAgfSk7CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIG1vc3RyYXJTb2JyZSgpIHsKICAgICAgYXBwLmlubmVySFRNTCA9IGAKICAgICAgICA8aDE+U29icmUgbyBwcm9qZXRvPC9oMT4KICAgICAgICA8cD4KICAgICAgICAgIEVzdGUgZXhlbXBsbyBmb2kgY3JpYWRvIHBhcmEgZGVtb25zdHJhciB1bWEgU2luZ2xlIFBhZ2UgQXBwbGljYXRpb24gc2ltcGxlcy4KICAgICAgICA8L3A+CiAgICAgICAgPHA+CiAgICAgICAgICBFeGlzdGUgYXBlbmFzIHVtIGFycXVpdm8gSFRNTC4gQW8gY2xpY2FyIG5hcyBvcMOnw7VlcyBkbyBtZW51LAogICAgICAgICAgbyBKYXZhU2NyaXB0IG1vZGlmaWNhIG8gY29udGXDumRvIGRvIGVsZW1lbnRvIDxzdHJvbmc+I2FwcDwvc3Ryb25nPi4KICAgICAgICA8L3A+CiAgICAgICAgPHA+CiAgICAgICAgICBPIHByb2pldG8gdGFtYsOpbSBkZW1vbnN0cmEgY2FkYXN0cm8gZW0gYXJyYXksIG1hbmlwdWxhw6fDo28gZG8gRE9NLAogICAgICAgICAgZXZlbnRvcyBkZSBjbGlxdWUsIGVudmlvIGRlIGZvcm11bMOhcmlvLCBsaXN0YWdlbSBlIGV4Y2x1c8Ojby4KICAgICAgICA8L3A+CiAgICAgIGA7CiAgICB9CgogICAgYm90b2VzTWVudS5mb3JFYWNoKGJvdGFvID0+IHsKICAgICAgYm90YW8uYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCAoKSA9PiB7CiAgICAgICAgaXJQYXJhKGJvdGFvLmRhdGFzZXQucm90YSk7CiAgICAgIH0pOwogICAgfSk7CgogICAgbW9zdHJhckluaWNpbygpOwogIDwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K";
+const codigoSpa = decodeURIComponent(escape(atob(codigoBase64)));
+const frame = document.getElementById("spaFrame");
+const codigoFonte = document.getElementById("codigoFonte");
+codigoFonte.textContent = codigoSpa;
+
+function executarSpa(){
+  frame.srcdoc = codigoSpa;
+  mostrarToast("SPA executada.");
+}
+function limparSpa(){
+  frame.srcdoc = "<!doctype html><html><body style='font-family:Arial;padding:30px;color:#666'>Demonstração limpa. Clique em <b>Executar / Reiniciar SPA</b>.</body></html>";
+}
+async function copiarCodigo(){
+  try{
+    await navigator.clipboard.writeText(codigoSpa);
+    mostrarToast("Código copiado para a área de transferência.");
+  }catch(e){
+    const ta=document.createElement("textarea");
+    ta.value=codigoSpa;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();
+    mostrarToast("Código copiado.");
+  }
+}
+function mostrarToast(msg){
+  const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);
+}
+executarSpa();
+</script>
+</body>
+</html>
