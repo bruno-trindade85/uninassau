@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Revisão — I Unidade | Front-End Frameworks</title>
+<style>
+:root{--blue:#0b57d0;--blue2:#1a73e8;--pale:#e8f0fe;--ink:#1f1f1f;--muted:#5f6368;--line:#dadce0;--soft:#f8fafd;--green:#137333;--greenbg:#e6f4ea;--orange:#b06000;--orangebg:#fef7e0;--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.55}
+a{color:inherit}.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:14px 22px}.topbar-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}
+.brand-mark{width:34px;height:34px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative}.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:white}.brand strong{display:block}.brand small{display:block;color:var(--muted);font-size:12px}
+.wrap{max-width:1100px;margin:0 auto;padding:42px 22px 70px}.back{display:inline-block;margin-bottom:18px;color:var(--blue);text-decoration:none;font-weight:700}
+.hero{padding:34px;border:1px solid #d2e3fc;background:linear-gradient(145deg,#f8fafd,#e8f0fe);border-radius:28px;margin-bottom:24px}.eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 16px}.hero p{font-size:20px;color:#3c4043;max-width:900px;margin:0}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.badge{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;background:white;border:1px solid #c9d7ef;font-size:13px;font-weight:700;color:#174ea6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:#fff}.card.soft{background:var(--soft);border-color:transparent}.card.orange{background:var(--orangebg);border-color:#f4d799}.card h2{font-size:25px;margin:0 0 10px}.card p{margin:6px 0;color:#4b4f52}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:22px 0}.button{display:inline-block;padding:11px 18px;border-radius:999px;background:var(--blue);color:white;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15px}.button.secondary{background:white;color:var(--blue);border:1px solid #b8cdf0}
+.progress-box{margin-left:auto;color:var(--muted);font-weight:700}.questions{display:grid;gap:14px}.question{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:start;transition:.2s}
+.qnum{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--blue);font-weight:800}.question p{margin:4px 0;font-size:18px}.reviewed{background:var(--greenbg);border-color:#b7dfbe}.reviewed .qnum{background:#fff;color:var(--green)}
+.mark{appearance:none;width:24px;height:24px;border:2px solid #9aa0a6;border-radius:7px;cursor:pointer;position:relative;margin-top:9px;background:#fff}.mark:checked{border-color:var(--green);background:var(--green)}.mark:checked:after{content:"✓";position:absolute;color:#fff;font-weight:900;left:4px;top:-2px}
+.callout{border-left:5px solid var(--blue2);background:#f8fafd;border-radius:4px 16px 16px 4px;padding:18px 22px;margin:20px 0}
+footer{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:760px){.wrap{padding:26px 14px 50px}.hero{padding:24px}.grid{grid-template-columns:1fr}.hero h1{font-size:38px}.question{grid-template-columns:42px 1fr}.mark{grid-column:2}.progress-box{width:100%;margin-left:0}.topbar{padding:12px 14px}}
+@media print{.topbar,.toolbar,.back{display:none}.wrap{max-width:none;padding:0}.hero,.question{break-inside:avoid}.question{grid-template-columns:42px 1fr}.mark{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand-mark" aria-hidden="true"></div><div class="brand"><strong>Front-End Frameworks — 2026.2</strong><small>I Unidade • Revisão</small></div></div></header>
+
+<main class="wrap">
+<a class="back" href="../">← Voltar para Front-End Frameworks</a>
+
+<section class="hero">
+<div class="eyebrow">Revisão para a I Unidade</div>
+<h1>20 questões de Front-End Frameworks</h1>
+<p>Questões curtas e diretas para revisar os principais conceitos trabalhados nas aulas e atividades da I Unidade.</p>
+<div class="meta">
+<span class="badge">Renderização</span>
+<span class="badge">DOM</span>
+<span class="badge">Virtual DOM</span>
+<span class="badge">SPA</span>
+<span class="badge">Ferramentas Front-End</span>
+</div>
+</section>
+
+<section class="grid">
+<article class="card soft"><h2>Como utilizar</h2><p>Responda cada questão com suas próprias palavras. Depois de revisar um item, marque a caixa ao lado para acompanhar seu progresso.</p></article>
+<article class="card orange"><h2>Importante</h2><p>As questões não possuem alternativas. O objetivo é revisar conceitos e explicar de forma objetiva o que cada recurso faz.</p></article>
+</section>
+
+<div class="callout"><strong>Dica:</strong> procure responder primeiro sem consultar o material. Depois, revise as aulas e compare sua explicação com os conceitos apresentados.</div>
+
+<div class="toolbar">
+<button class="button" onclick="window.print()">Imprimir / Salvar em PDF</button>
+<button class="button secondary" onclick="limparProgresso()">Limpar marcações</button>
+<div class="progress-box" id="progresso">0 de 20 revisadas</div>
+</div>
+
+<section class="questions" id="questoes">
+<article class="question"><div class="qnum">1</div><p>Qual é a diferença entre o código HTML e o DOM criado pelo navegador?</p><input class="mark" type="checkbox" aria-label="Marcar questão 1 como revisada"></article>
+<article class="question"><div class="qnum">2</div><p>O que significa dizer que a interface de uma aplicação depende do seu <strong>estado</strong>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 2 como revisada"></article>
+<article class="question"><div class="qnum">3</div><p>O que acontece com a interface quando o estado de uma aplicação é alterado?</p><input class="mark" type="checkbox" aria-label="Marcar questão 3 como revisada"></article>
+<article class="question"><div class="qnum">4</div><p>Qual é a diferença entre programação <strong>imperativa</strong> e <strong>declarativa</strong> na atualização da interface?</p><input class="mark" type="checkbox" aria-label="Marcar questão 4 como revisada"></article>
+<article class="question"><div class="qnum">5</div><p>Para que alguns frameworks utilizam o <strong>Virtual DOM</strong>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 5 como revisada"></article>
+<article class="question"><div class="qnum">6</div><p>O que é <strong>diffing</strong> e em que momento ele é utilizado?</p><input class="mark" type="checkbox" aria-label="Marcar questão 6 como revisada"></article>
+<article class="question"><div class="qnum">7</div><p>Qual é a função da <strong>reconciliação</strong> na atualização da interface?</p><input class="mark" type="checkbox" aria-label="Marcar questão 7 como revisada"></article>
+<article class="question"><div class="qnum">8</div><p>Para que servem as <strong>keys</strong> em listas de elementos de uma aplicação?</p><input class="mark" type="checkbox" aria-label="Marcar questão 8 como revisada"></article>
+<article class="question"><div class="qnum">9</div><p>Re-renderizar um componente significa reconstruir todo o DOM? Explique brevemente.</p><input class="mark" type="checkbox" aria-label="Marcar questão 9 como revisada"></article>
+<article class="question"><div class="qnum">10</div><p>O que caracteriza uma aplicação do tipo <strong>SPA</strong>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 10 como revisada"></article>
+<article class="question"><div class="qnum">11</div><p>Em uma SPA, o que normalmente acontece quando o usuário muda de uma tela para outra?</p><input class="mark" type="checkbox" aria-label="Marcar questão 11 como revisada"></article>
+<article class="question"><div class="qnum">12</div><p>Qual é a função da propriedade <code>innerHTML</code> em JavaScript?</p><input class="mark" type="checkbox" aria-label="Marcar questão 12 como revisada"></article>
+<article class="question"><div class="qnum">13</div><p>Para que serve <code>document.getElementById()</code>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 13 como revisada"></article>
+<article class="question"><div class="qnum">14</div><p>Qual é a função do evento <code>onclick</code> em um elemento HTML?</p><input class="mark" type="checkbox" aria-label="Marcar questão 14 como revisada"></article>
+<article class="question"><div class="qnum">15</div><p>Por que uma SPA pode apresentar diferentes telas sem possuir um arquivo HTML para cada uma delas?</p><input class="mark" type="checkbox" aria-label="Marcar questão 15 como revisada"></article>
+<article class="question"><div class="qnum">16</div><p>Qual é a principal diferença entre <strong>CSR, SSR e SSG</strong> quanto ao momento ou local em que o conteúdo da página é gerado?</p><input class="mark" type="checkbox" aria-label="Marcar questão 16 como revisada"></article>
+<article class="question"><div class="qnum">17</div><p>Para que serve um <strong>gerenciador de pacotes</strong> em um projeto Front-End?</p><input class="mark" type="checkbox" aria-label="Marcar questão 17 como revisada"></article>
+<article class="question"><div class="qnum">18</div><p>Qual é a função de um <strong>empacotador de módulos (bundler)</strong>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 18 como revisada"></article>
+<article class="question"><div class="qnum">19</div><p>Qual é a diferença entre um <strong>transpilador</strong> e um <strong>linter</strong>?</p><input class="mark" type="checkbox" aria-label="Marcar questão 19 como revisada"></article>
+<article class="question"><div class="qnum">20</div><p>Por que separar o projeto em arquivos como <code>index.html</code>, <code>style.css</code> e <code>app.js</code> facilita o desenvolvimento e a manutenção da aplicação?</p><input class="mark" type="checkbox" aria-label="Marcar questão 20 como revisada"></article>
+</section>
+
+<footer>Disciplina: Front-End Frameworks — 2026.2 • Revisão da I Unidade</footer>
+</main>
+
+<script>
+const checks=[...document.querySelectorAll(".mark")];
+const storageKey="frontend-frameworks-revisao-i-unidade";
+function carregarProgresso(){
+  let marcadas=[];
+  try{marcadas=JSON.parse(localStorage.getItem(storageKey)||"[]")}catch(e){}
+  checks.forEach((check,i)=>{
+    check.checked=marcadas.includes(i);
+    check.closest(".question").classList.toggle("reviewed",check.checked);
+  });
+  atualizarProgresso(false);
+}
+function atualizarProgresso(salvar=true){
+  const marcadas=[];
+  checks.forEach((check,i)=>{
+    check.closest(".question").classList.toggle("reviewed",check.checked);
+    if(check.checked)marcadas.push(i);
+  });
+  document.getElementById("progresso").textContent=marcadas.length+" de "+checks.length+" revisadas";
+  if(salvar)localStorage.setItem(storageKey,JSON.stringify(marcadas));
+}
+function limparProgresso(){
+  checks.forEach(c=>c.checked=false);
+  atualizarProgresso();
+}
+checks.forEach(c=>c.addEventListener("change",()=>atualizarProgresso()));
+carregarProgresso();
+</script>
+</body>
+</html>
