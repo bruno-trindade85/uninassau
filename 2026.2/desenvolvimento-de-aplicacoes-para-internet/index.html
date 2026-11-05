@@ -1,2 +1,80 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Desenvolvimento de Aplicações para Internet — 2026.2</title><style>body{font-family:Arial,sans-serif;margin:0;background:#f6f8fb;color:#1f1f1f}.wrap{max-width:980px;margin:0 auto;padding:48px 24px}h1{font-size:40px;margin-bottom:8px}p{color:#5f6368}.card{display:block;margin-top:18px;padding:22px;border-radius:18px;background:#fff;border:1px solid #dadce0;text-decoration:none;color:#1f1f1f;box-shadow:0 1px 2px #0001}.card:hover{border-color:#0b57d0;transform:translateY(-1px)}.date{font-size:13px;color:#0b57d0;font-weight:700}.back{color:#0b57d0;text-decoration:none}.status{display:inline-block;margin-top:10px;padding:5px 10px;border-radius:999px;background:#e8f0fe;color:#174ea6;font-size:12px;font-weight:700}.soon{background:#f1f3f4;color:#5f6368}.grid{display:grid;grid-template-columns:1fr;gap:2px;margin-top:24px}</style></head><body><main class="wrap"><a class="back" href="../">← 2026.2</a><h1>Desenvolvimento de Aplicações para Internet</h1><p>Materiais interativos da disciplina — período 2026.2.</p><div class="grid"><div class="card"><span class="date">20/08/2026</span><br><strong>Aula 01 — Introdução ao desenvolvimento Back-End</strong><br><span>Revisão de lógica, funções, coleções, JSON e diferenças entre Front-End e Back-End.</span><br><span class="status soon">Registro no plano</span></div><a class="card" href="aula-02-arquitetura-cliente-servidor/"><span class="date">27/08/2026</span><br><strong>Aula 02 — Arquitetura Cliente-Servidor</strong><br><span>Cliente, servidor, requisição, resposta, ciclo Request/Response, URL, JSON, Front-End, Back-End e quiz final.</span><br><span class="status">Abrir aula interativa</span></a><a class="card" href="aula-03-protocolos-http-https/"><span class="date">03/09/2026</span><br><strong>Aula 03 — Protocolos HTTP e HTTPS</strong><br><span>Métodos HTTP, cabeçalhos, corpo da requisição, códigos de status, JSON, exemplos práticos e segurança da comunicação.</span><br><span class="status">Abrir aula interativa</span></a><a class="card" href="aula-04-nodejs-eventos/"><span class="date">10/09/2026</span><br><strong>Aula 04 — Node.js e programação orientada a eventos</strong><br><span>O que é Node.js, para que serve, uso no Back-End, servidores, I/O não bloqueante, síncrono e assíncrono e introdução ao Event Loop.</span><br><span class="status">Abrir aula interativa</span></a><a class="card" href="atividade-pratica-17-09/"><span class="date">17/09/2026</span><br><strong>Atividade Prática — HTML, CSS e JavaScript</strong><br><span>Aplicação simples com uma regra de negócio, utilizando conteúdos já trabalhados: estrutura de página, estilização, funções, variáveis, condicionais e organização de dados.</span><br><span class="status">Abrir atividade</span></a><a class="card" href="revisao-i-unidade-01-10/"><span class="date">01/10/2026</span><br><strong>Revisão — I Unidade</strong><br><span>20 questões abertas sobre Front-End, Back-End, cliente-servidor, HTTP, Node.js, APIs RESTful e middlewares.</span><br><span class="status">Abrir revisão</span></a><div class="card"><span class="date">08/10/2026</span><br><strong>1ª Prova — Unidades I e II</strong><br><span>Avaliação dos conteúdos de arquitetura, HTTP/HTTPS, Node.js, APIs RESTful, rotas e middlewares.</span><br><span class="status soon">Avaliação</span></div></div></main></body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Aulas, atividades e revisões de Desenvolvimento de Aplicações para Internet — UNINASSAU 2026.2, organizadas por unidade avaliativa.">
+  <title>Desenvolvimento de Aplicações para Internet — 2026.2</title>
+  <style>
+    :root{color-scheme:light}
+    *{box-sizing:border-box}
+    body{font-family:Arial,sans-serif;margin:0;background:#f6f8fb;color:#1f1f1f}
+    .wrap{max-width:980px;margin:0 auto;padding:48px 24px 72px}
+    h1{font-size:clamp(28px,5vw,40px);margin:14px 0 8px}
+    h2{font-size:25px;margin:0}
+    p{color:#5f6368;line-height:1.55}
+    .back{color:#0b57d0;text-decoration:none}
+    .intro{margin-bottom:28px}
+    .nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 36px}
+    .nav a{display:inline-block;background:#fff;color:#174ea6;border:1px solid #d2e3fc;border-radius:999px;padding:10px 14px;font-weight:700;text-decoration:none;font-size:14px}
+    .nav a:hover{background:#e8f0fe}
+    section{margin-top:42px;scroll-margin-top:24px}
+    .section-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+    .unit-tag{display:inline-block;padding:7px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.02em;background:#e8f0fe;color:#174ea6}
+    .unit-tag.second{background:#e6f4ea;color:#137333}
+    .section-desc{margin:8px 0 22px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .card{display:block;padding:22px;border-radius:18px;background:#fff;border:1px solid #dadce0;text-decoration:none;color:#1f1f1f;box-shadow:0 1px 2px #0001;line-height:1.5}
+    a.card:hover{border-color:#0b57d0;transform:translateY(-1px)}
+    .card strong{display:block;font-size:17px;margin:6px 0}
+    .card .description{display:block;color:#444}
+    .date{font-size:13px;color:#0b57d0;font-weight:700}
+    .status{display:inline-block;margin-top:12px;padding:5px 10px;border-radius:999px;background:#e8f0fe;color:#174ea6;font-size:12px;font-weight:700}
+    .status.soon{background:#f1f3f4;color:#5f6368}
+    .card .unit-tag{margin-left:8px;padding:4px 9px;font-size:11px}
+    .note{font-size:13px;margin-top:16px}
+    @media(max-width:600px){.wrap{padding:26px 16px 48px}.card{padding:18px}h2{font-size:22px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="../">← 2026.2</a>
+  <h1>Desenvolvimento de Aplicações para Internet</h1>
+  <p class="intro">Materiais interativos da disciplina — período 2026.2. Organização em duas unidades avaliativas; cada unidade reúne dois blocos do plano de ensino.</p>
+  <nav class="nav" aria-label="Navegação por unidade">
+    <a href="#primeira-unidade">1ª Unidade — Arquitetura e APIs RESTful</a>
+    <a href="#segunda-unidade">2ª Unidade — Dados, Segurança e Implantação</a>
+  </nav>
+
+  <section id="primeira-unidade" aria-labelledby="titulo-primeira">
+    <div class="section-head"><span class="unit-tag">1ª UNIDADE</span><h2 id="titulo-primeira">Arquitetura Back-End e APIs RESTful</h2></div>
+    <p class="section-desc">Blocos I e II do plano de ensino: cliente-servidor, HTTP/HTTPS, Node.js, APIs RESTful, rotas e middlewares.</p>
+    <div class="grid">
+      <div class="card"><span class="date">20/08/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Aula 01 — Introdução ao desenvolvimento Back-End</strong><span class="description">Revisão de lógica, funções, coleções, JSON e diferenças entre Front-End e Back-End.</span><span class="status soon">Registro no plano</span></div>
+      <a class="card" href="aula-02-arquitetura-cliente-servidor/"><span class="date">27/08/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Aula 02 — Arquitetura Cliente-Servidor</strong><span class="description">Cliente, servidor, requisição, resposta, ciclo Request/Response, URL, JSON, Front-End, Back-End e quiz final.</span><span class="status">Abrir aula interativa</span></a>
+      <a class="card" href="aula-03-protocolos-http-https/"><span class="date">03/09/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Aula 03 — Protocolos HTTP e HTTPS</strong><span class="description">Métodos HTTP, cabeçalhos, corpo da requisição, códigos de status, JSON, exemplos práticos e segurança da comunicação.</span><span class="status">Abrir aula interativa</span></a>
+      <a class="card" href="aula-04-nodejs-eventos/"><span class="date">10/09/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Aula 04 — Node.js e programação orientada a eventos</strong><span class="description">O que é Node.js, para que serve, uso no Back-End, servidores, I/O não bloqueante, síncrono e assíncrono e introdução ao Event Loop.</span><span class="status">Abrir aula interativa</span></a>
+      <a class="card" href="atividade-pratica-17-09/"><span class="date">17/09/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Atividade Prática — HTML, CSS e JavaScript</strong><span class="description">Aplicação simples com uma regra de negócio, utilizando conteúdos já trabalhados: estrutura de página, estilização, funções, variáveis, condicionais e organização de dados.</span><span class="status">Abrir atividade</span></a>
+      <a class="card" href="revisao-i-unidade-01-10/"><span class="date">01/10/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>Revisão — 1ª Unidade</strong><span class="description">20 questões abertas sobre Front-End, Back-End, cliente-servidor, HTTP, Node.js, APIs RESTful e middlewares.</span><span class="status">Abrir revisão</span></a>
+      <div class="card"><span class="date">08/10/2026</span><span class="unit-tag">1ª UNIDADE</span><strong>1ª Prova — 1ª Unidade (blocos I e II)</strong><span class="description">Avaliação dos conteúdos de arquitetura, HTTP/HTTPS, Node.js, APIs RESTful, rotas e middlewares.</span><span class="status soon">Avaliação</span></div>
+    </div>
+  </section>
+
+  <section id="segunda-unidade" aria-labelledby="titulo-segunda">
+    <div class="section-head"><span class="unit-tag second">2ª UNIDADE</span><h2 id="titulo-segunda">Integração, Segurança e Implantação</h2></div>
+    <p class="section-desc">Blocos III e IV do plano de ensino: assincronismo, bancos de dados, APIs externas, segurança, documentação, performance e nuvem.</p>
+    <div class="grid">
+      <div class="card"><span class="date">15/10/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Programação assíncrona — Promises e Async/Await</strong><span class="description">Assincronismo, Promises, Async/Await e diferenças entre operações síncronas e assíncronas.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">22/10/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Tratamento de erros e exceções</strong><span class="description">Try/Catch, propagação de exceções, respostas padronizadas e middlewares centralizadores de erro.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">29/10/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Integração com banco de dados</strong><span class="description">Conexão da API com sistemas de persistência e implementação de operações CRUD.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">05/11/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Mapeadores Objeto-Relacionais (ORMs)</strong><span class="description">Uso de ORMs e organização da camada de persistência da aplicação.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">12/11/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Consumo de APIs externas</strong><span class="description">Integração com serviços externos, processamento em lote, Timeouts e degradação graciosa.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">19/11/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Segurança em aplicações Back-End</strong><span class="description">Criptografia de senhas, Salting, autenticação com JWT, autorização, CORS e cabeçalhos de segurança.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">26/11/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>Documentação, performance e implantação</strong><span class="description">Swagger/OpenAPI, cache, análise de gargalos, publicação em nuvem, HTTPS e revisão para a prova.</span><span class="status soon">Conteúdo no cronograma</span></div>
+      <div class="card"><span class="date">03/12/2026</span><span class="unit-tag second">2ª UNIDADE</span><strong>2ª Prova — 2ª Unidade (blocos III e IV)</strong><span class="description">Avaliação de assincronismo, tratamento de erros, persistência, APIs externas, segurança, documentação, performance e implantação.</span><span class="status soon">Avaliação prevista</span></div>
+    </div>
+    <p class="note">As aulas desta unidade estão listadas conforme o cronograma; links para materiais interativos serão adicionados quando forem publicados no repositório.</p>
+  </section>
+</main>
+</body>
+</html>
