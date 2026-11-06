@@ -1,0 +1,366 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>Atividade — Engenharia de Componentes e Encapsulamento | UNINASSAU 2026.2</title><style>
+:root{--blue:#0b57d0;--line:#dadce0;--ink:#202124;--muted:#5f6368}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font:17px/1.55 Arial,Helvetica,sans-serif}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #8ab4f8;outline-offset:2px}
+.topbar{position:fixed;z-index:10;top:0;left:0;right:0;height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:32px;height:32px;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative;flex-shrink:0}.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:white}.brand small{display:block;color:var(--muted);font-size:12px}
+.mode-switch{display:flex;border-radius:30px;background:#f1f3f4;padding:3px}.mode-btn{background:transparent;border:0;border-radius:30px;padding:8px 13px}.mode-btn.active{background:white;color:var(--blue);box-shadow:0 1px 4px #0002;font-weight:700}
+.progress{position:fixed;top:68px;height:4px;background:#eef0f2;width:100%;z-index:12}.progress span{display:block;width:0;height:100%;background:#4285f4;transition:width .2s}
+.sidebar{position:fixed;top:72px;bottom:0;left:0;width:275px;padding:18px 10px;overflow:auto;border-right:1px solid #f1f3f4}.nav-title{padding:8px 14px;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase}.nav-item{display:block;border:0;background:transparent;text-align:left;padding:10px 12px;width:100%;border-radius:0 25px 25px 0;color:#3c4043}.nav-item:hover{background:#f1f3f4}.nav-item.active{background:#d3e3fd;color:#041e49;font-weight:bold}.num{display:inline-block;width:26px;font-size:12px}
+.content{margin-left:275px;padding:100px 30px 112px}.slide{max-width:1150px;margin:0 auto;display:none}.lesson .slide.active{display:block}.study .slide{display:block;padding:30px 0 72px;margin-bottom:60px;border-bottom:1px solid var(--line)}.eyebrow{font-size:14px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;color:var(--blue)}
+h1{font-size:clamp(36px,5vw,64px);line-height:1.07;letter-spacing:-.04em;margin:18px 0 25px}h2{font-size:clamp(32px,4vw,52px);line-height:1.15;margin:20px 0 30px;letter-spacing:-.03em}.lead{font-size:clamp(20px,2.5vw,27px);color:#3c4043;max-width:950px}
+.grid{display:grid;gap:20px;margin:25px 0}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}.card.blue{background:#edf4ff;border-color:#c2d7ff}.card.green{background:#e6f4ea;border-color:#b7dfbe}.card p{color:#3c4043}.badge{display:inline-block;border-radius:30px;padding:4px 12px;font-size:13px;font-weight:bold;background:#d3e3fd;color:#0842a0}.badge.green{background:#c4eed0;color:#0d652d}
+.callout{background:#f8fafd;border-left:5px solid #4285f4;padding:21px 24px;border-radius:4px 16px 16px 4px;font-size:19px;margin-top:26px}
+.bottom-nav{position:fixed;z-index:10;left:275px;right:0;bottom:0;height:72px;background:#fffffff2;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:14px}.study .bottom-nav{display:none}
+.primary,.secondary{padding:10px 20px;border-radius:30px;font-weight:700}.primary{background:var(--blue);color:white;border:1px solid var(--blue)}.secondary{background:white;color:var(--blue);border:1px solid var(--line)}.counter{color:var(--muted);min-width:80px;text-align:center}
+.code-box{border-radius:16px;overflow:hidden;border:1px solid #3c4043;margin:22px 0}.code-head{background:#303134;color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}.code-head .secondary{font-size:13px;padding:6px 14px}.code-box pre{margin:0;background:#202124;color:#e8eaed;overflow:auto;max-height:56vh;padding:20px;font:14px/1.55 Consolas,Monaco,monospace;white-space:pre;tab-size:2}
+.tree,.short-code{background:#202124;color:#e8eaed;padding:18px;border-radius:14px;font:15px/1.6 Consolas,monospace;overflow:auto}.product{border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;background:white}.fake-img{background:#e8f0fe;min-height:130px;display:flex;align-items:center;justify-content:center;border-radius:12px;color:#405a86;font-size:14px}.product b{display:block;color:#0b57d0}.product span{display:inline-block;background:#0b57d0;color:white;border-radius:7px;padding:8px 14px;font-size:13px;margin-top:12px}.flow{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}.flow span{border-radius:12px;border:1px solid var(--line);padding:16px}.flow strong{color:var(--blue)}
+.steps li{margin-bottom:14px}code{font-family:Consolas,monospace;font-size:.93em}button:disabled{opacity:.4;cursor:default}.toast{position:fixed;bottom:85px;right:20px;background:#202124;color:white;padding:12px 20px;border-radius:10px;opacity:0;transition:opacity .2s;pointer-events:none}.toast.show{opacity:1}
+@media(max-width:960px){.sidebar{display:none}.content{margin-left:0}.bottom-nav{left:0}}@media(max-width:680px){.topbar{padding:0 10px}.brand small{display:none}.brand strong{font-size:13px}.mode-btn{padding:7px 9px;font-size:13px}.content{padding:90px 14px 105px}.g2,.g3{grid-template-columns:1fr}.card{padding:20px}h1{font-size:35px}h2{font-size:32px}.code-box pre{font-size:12px;max-height:60vh}}
+@media print{.topbar,.sidebar,.bottom-nav,.progress,.copy,.toast{display:none!important}.content{margin:0;padding:10px}.slide{display:block!important;break-after:page}.code-box pre{max-height:none;white-space:pre-wrap}}
+</style></head><body class="lesson"><header class="topbar"><div class="brand"><div class="brand-mark"></div><div><strong>FRONT-END FRAMEWORKS — 2026.2</strong><small>Atividade: engenharia de componentes e encapsulamento</small></div></div><div class="mode-switch"><button class="mode-btn active" data-mode="lesson" type="button">Apresentação</button><button class="mode-btn" data-mode="study" type="button">Estudo</button></div></header><div class="progress"><span id="progress"></span></div><aside class="sidebar"><div class="nav-title">Passo a passo da atividade</div><nav id="nav" aria-label="Navegação dos slides"></nav></aside><main class="content"><section class="slide active" data-title="Abertura"><div class="eyebrow">Front-End Frameworks · II Unidade · Atividade prática</div><h1>Construindo cards reutilizáveis</h1><p class="lead">Crie um catálogo com três produtos usando HTML, CSS e JavaScript. Depois, adicione sozinho um quarto card.</p><div class="grid g2"><div class="card blue"><span class="badge">1º momento</span><h3>Copiar e executar</h3><p>Crie a pasta, os três arquivos e coloque o código de cada etapa no lugar certo.</p></div><div class="card green"><span class="badge green">2º momento</span><h3>Reutilizar o componente</h3><p>Adicione um quarto produto sem duplicar a função que gera os cards.</p></div></div><div class="callout"><strong>Não é necessário instalar React ou Node.js.</strong> Basta um editor de texto e um navegador.</div></section>
+<section class="slide" data-title="Objetivo"><div class="eyebrow">O que vamos aprender?</div><h2>Engenharia de componentes e encapsulamento</h2><div class="grid g2"><div class="card blue"><h3>Reutilização</h3><p>Uma única função <code>criarCard()</code> constrói todos os produtos a partir de informações diferentes.</p></div><div class="card"><h3>Separação de responsabilidades</h3><p><strong>HTML</strong> organiza a página; <strong>CSS</strong> cuida do visual; <strong>JavaScript</strong> constrói os cards e adiciona o comportamento.</p></div></div><div class="callout">Esta atividade apresenta os princípios de componentes com JavaScript puro. Componentes React serão vistos depois.</div></section>
+<section class="slide" data-title="Resultado esperado"><div class="eyebrow">Primeiro, veja o objetivo</div><h2>Seu catálogo terá três cards</h2><div class="grid g3"><div class="product"><div class="fake-img">Imagem do notebook</div><h3>Notebook</h3><b>R$ 3.500,00</b><span>Ver detalhes</span></div><div class="product"><div class="fake-img">Imagem do mouse</div><h3>Mouse</h3><b>R$ 120,00</b><span>Ver detalhes</span></div><div class="product"><div class="fake-img">Imagem do teclado</div><h3>Teclado</h3><b>R$ 250,00</b><span>Ver detalhes</span></div></div><div class="callout">Os quadros acima são apenas uma representação. <strong>Os próprios alunos devem buscar e salvar as imagens reais.</strong></div></section>
+<section class="slide" data-title="Estrutura de pastas"><div class="eyebrow">Passo 1</div><h2>Crie os arquivos e a pasta de imagens</h2><div class="grid g2"><div class="card"><h3>Estrutura obrigatória</h3><pre class="tree">catalogo-produtos/
+├── index.html
+├── style.css
+├── script.js
+└── imagens/
+    ├── notebook.jpg
+    ├── mouse.jpg
+    └── teclado.jpg</pre></div><div class="card blue"><h3>Como começar</h3><ol><li>Crie a pasta <code>catalogo-produtos</code>.</li><li>Dentro dela, crie os três arquivos.</li><li>Crie a subpasta <code>imagens</code>.</li><li>Deixe tudo salvo na estrutura mostrada.</li></ol></div></div><div class="callout"><strong>Importante:</strong> os nomes dos arquivos e pastas precisam corresponder exatamente ao código.</div></section>
+<section class="slide" data-title="Imagens dos produtos"><div class="eyebrow">Antes de executar</div><h2>Onde conseguir as imagens?</h2><div class="grid g2"><div class="card blue"><h3>Pesquise e salve</h3><p>Procure imagens de notebook, mouse e teclado na internet, preferencialmente com permissão de reutilização. Salve-as na pasta <code>imagens</code>.</p><p>Use os nomes <code>notebook.jpg</code>, <code>mouse.jpg</code> e <code>teclado.jpg</code>.</p></div><div class="card"><h3>Confira os caminhos</h3><pre class="tree">imagens/notebook.jpg
+imagens/mouse.jpg
+imagens/teclado.jpg</pre><p>Se baixar arquivos em formato PNG ou WebP, altere a extensão no JavaScript ou converta os arquivos.</p></div></div><div class="callout"><strong>Atenção:</strong> se a pasta ou o nome não corresponder, o card aparecerá, mas sua imagem ficará quebrada. Não é preciso criar imagens; basta procurá-las.</div></section>
+<section class="slide" data-title="index.html"><div class="eyebrow">Mão na massa · 2</div><h2>index.html</h2><p class="lead">Cole este código no arquivo responsável pela estrutura da página.</p><div class="code-box"><div class="code-head"><span>index.html</span><button class="copy secondary" type="button" data-copy="index.html">Copiar código</button></div><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Catálogo de Produtos&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Minha Loja&lt;/h1&gt;
+    &lt;p&gt;Catálogo de produtos&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="catalogo"&gt;
+      &lt;h2&gt;Nossos Produtos&lt;/h2&gt;
+      &lt;div id="lista-produtos"&gt;&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;Minha Loja - 2026&lt;/p&gt;
+  &lt;/footer&gt;
+  &lt;script src="script.js"&gt;&lt;\/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div><div class="callout"><strong>Salve o arquivo</strong> com o nome indicado, dentro da pasta <code>catalogo-produtos</code>.</div></section>
+<section class="slide" data-title="Entenda o HTML"><div class="eyebrow">Depois de copiar</div><h2>O que o HTML está fazendo?</h2><div class="grid g2"><div class="card blue"><h3>Estrutura semântica</h3><p><code>&lt;header&gt;</code> define o cabeçalho, <code>&lt;main&gt;</code> o conteúdo principal, <code>&lt;section&gt;</code> a área de produtos e <code>&lt;footer&gt;</code> o rodapé.</p></div><div class="card"><h3>Local dos cards</h3><p>A <code>div</code> com <code>id="lista-produtos"</code> começa vazia; o JavaScript adicionará os produtos nela.</p></div></div><div class="callout">O HTML <strong>não precisa conter três cards escritos à mão</strong>. Eles serão gerados pelo JavaScript.</div></section>
+<section class="slide" data-title="style.css"><div class="eyebrow">Mão na massa · 3</div><h2>style.css</h2><p class="lead">Cole este código no arquivo que controla o visual da página.</p><div class="code-box"><div class="code-head"><span>style.css</span><button class="copy secondary" type="button" data-copy="style.css">Copiar código</button></div><pre><code>* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+}
+header {
+  background-color: #1565c0;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 15px;
+}
+.catalogo h2 {
+  text-align: center;
+}
+#lista-produtos {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+.card h3 {
+  margin: 12px 0;
+}
+.preco {
+  color: #1565c0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card button {
+  padding: 10px 15px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card button:hover {
+  background: #0d47a1;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #e4e8ed;
+}</code></pre></div><div class="callout"><strong>Salve o arquivo</strong> com o nome indicado, dentro da pasta <code>catalogo-produtos</code>.</div></section>
+<section class="slide" data-title="Entenda o CSS"><div class="eyebrow">Depois de copiar</div><h2>Um estilo para todos os cards</h2><div class="grid g2"><div class="card blue"><h3><code>.card</code></h3><p>Define borda, espaçamento, fundo e alinhamento de cada cartão.</p></div><div class="card"><h3><code>#lista-produtos</code></h3><p>Usa CSS Grid para organizar os cards em colunas adaptáveis à largura da tela.</p></div></div><div class="callout"><strong>Reutilização visual:</strong> mudar uma propriedade de <code>.card</code> altera os cards de todos os produtos.</div></section>
+<section class="slide" data-title="script.js"><div class="eyebrow">Mão na massa · 4</div><h2>script.js</h2><p class="lead">Cole este código no arquivo responsável pelos dados, pela criação de cards e pelo botão.</p><div class="code-box"><div class="code-head"><span>script.js</span><button class="copy secondary" type="button" data-copy="script.js">Copiar código</button></div><pre><code>const produtos = [
+  {
+    nome: "Notebook",
+    preco: 3500,
+    imagem: "imagens/notebook.jpg"
+  },
+  {
+    nome: "Mouse",
+    preco: 120,
+    imagem: "imagens/mouse.jpg"
+  },
+  {
+    nome: "Teclado",
+    preco: 250,
+    imagem: "imagens/teclado.jpg"
+  }
+];
+
+// Cria um card reutilizável para cada produto
+function criarCard(produto) {
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const imagem = document.createElement("img");
+  imagem.src = produto.imagem;
+  imagem.alt = produto.nome;
+
+  const nome = document.createElement("h3");
+  nome.textContent = produto.nome;
+
+  const preco = document.createElement("p");
+  preco.className = "preco";
+  preco.textContent = produto.preco.toLocaleString(
+    "pt-BR",
+    { style: "currency", currency: "BRL" }
+  );
+
+  const botao = document.createElement("button");
+  botao.type = "button";
+  botao.textContent = "Ver detalhes";
+
+  botao.addEventListener("click", function() {
+    alert("Produto: " + produto.nome);
+  });
+
+  card.append(imagem, nome, preco, botao);
+  return card;
+}
+
+// Exibe cada card no catálogo
+function mostrarProdutos() {
+  const lista = document.getElementById(
+    "lista-produtos"
+  );
+
+  produtos.forEach(function(produto) {
+    const card = criarCard(produto);
+    lista.appendChild(card);
+  });
+}
+
+mostrarProdutos();</code></pre></div><div class="callout"><strong>Salve o arquivo</strong> com o nome indicado, dentro da pasta <code>catalogo-produtos</code>.</div></section>
+<section class="slide" data-title="Entenda o JavaScript"><div class="eyebrow">Depois de copiar</div><h2>Como surgem três cards com uma função?</h2><div class="grid g3"><div class="card blue"><span class="badge">Dados</span><h3>Array <code>produtos</code></h3><p>Guarda nome, preço e imagem dos três produtos.</p></div><div class="card"><span class="badge">Componente</span><h3><code>criarCard()</code></h3><p>Recebe um produto e devolve um card HTML completo.</p></div><div class="card green"><span class="badge green">Exibição</span><h3><code>mostrarProdutos()</code></h3><p>Percorre o array e adiciona um card por produto à página.</p></div></div><div class="flow"><span>Produto</span><strong>→</strong><span>criarCard()</span><strong>→</strong><span>Card na tela</span></div><div class="callout">A mesma função é executada para os três produtos: não há cópia do código de criação de card.</div></section>
+<section class="slide" data-title="Execute e confira"><div class="eyebrow">Passo 5</div><h2>Execute no navegador</h2><div class="card"><ol class="steps"><li>Salve os três arquivos e as imagens na pasta correta.</li><li>Abra <code>index.html</code> com dois cliques.</li><li>Confira se aparecem os três produtos.</li><li>Clique em <strong>Ver detalhes</strong> para exibir o nome.</li><li>Se uma imagem não carregar, verifique nome, extensão e pasta.</li></ol></div><div class="callout"><strong>Dica:</strong> se a página estiver desatualizada, recarregue-a com <code>Ctrl + F5</code>.</div></section>
+<section class="slide" data-title="Desafio: quarto card"><div class="eyebrow">Passo 6 · Sua vez</div><h2>Agora crie o quarto produto</h2><p class="lead">Escolha um produto diferente e acrescente um novo objeto ao array <code>produtos</code>, dentro do arquivo <code>script.js</code>.</p><div class="grid g2"><div class="card blue"><h3>Modelo a completar</h3><pre class="short-code"><code>{
+  nome: "NOME DO PRODUTO",
+  preco: 0,
+  imagem: "imagens/nova-imagem.jpg"
+}</code></pre><button class="secondary copy" type="button" data-copy="quarto">Copiar modelo</button></div><div class="card"><h3>Checklist do desafio</h3><ul><li>Defina o nome e o preço.</li><li>Encontre uma imagem e salve na pasta.</li><li>Adicione o objeto ao array com a vírgula correta.</li><li>Atualize a página: devem aparecer <strong>quatro cards</strong>.</li></ul></div></div><div class="callout"><strong>Regra principal:</strong> não duplique a função <code>criarCard()</code>. Reutilize a função existente.</div></section>
+<section class="slide" data-title="Conclusão"><div class="eyebrow">Atividade concluída</div><h2>O que você construiu?</h2><div class="grid g2"><div class="card blue"><h3>Separação organizada</h3><p>Uma página HTML, uma folha de estilos CSS e um arquivo JavaScript trabalhando juntos.</p></div><div class="card green"><h3>Um componente reutilizável</h3><p>A função <code>criarCard()</code> foi utilizada com quatro conjuntos de dados, sem repetição de sua implementação.</p></div></div><div class="callout"><strong>Meta final:</strong> catálogo funcionando com quatro cards e todas as imagens carregadas corretamente.</div></section></main><footer class="bottom-nav"><button class="secondary" id="prev">← Anterior</button><span class="counter" id="counter"></span><button class="primary" id="next">Próximo →</button></footer><div class="toast" id="toast" role="status" aria-live="polite"></div><template id="source-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Catálogo de Produtos&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Minha Loja&lt;/h1&gt;
+    &lt;p&gt;Catálogo de produtos&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section class="catalogo"&gt;
+      &lt;h2&gt;Nossos Produtos&lt;/h2&gt;
+      &lt;div id="lista-produtos"&gt;&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;Minha Loja - 2026&lt;/p&gt;
+  &lt;/footer&gt;
+  &lt;script src="script.js"&gt;&lt;\/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</template><template id="source-css">* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+}
+header {
+  background-color: #1565c0;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 15px;
+}
+.catalogo h2 {
+  text-align: center;
+}
+#lista-produtos {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+.card h3 {
+  margin: 12px 0;
+}
+.preco {
+  color: #1565c0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card button {
+  padding: 10px 15px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card button:hover {
+  background: #0d47a1;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #e4e8ed;
+}</template><template id="source-js">const produtos = [
+  {
+    nome: "Notebook",
+    preco: 3500,
+    imagem: "imagens/notebook.jpg"
+  },
+  {
+    nome: "Mouse",
+    preco: 120,
+    imagem: "imagens/mouse.jpg"
+  },
+  {
+    nome: "Teclado",
+    preco: 250,
+    imagem: "imagens/teclado.jpg"
+  }
+];
+
+// Cria um card reutilizável para cada produto
+function criarCard(produto) {
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const imagem = document.createElement("img");
+  imagem.src = produto.imagem;
+  imagem.alt = produto.nome;
+
+  const nome = document.createElement("h3");
+  nome.textContent = produto.nome;
+
+  const preco = document.createElement("p");
+  preco.className = "preco";
+  preco.textContent = produto.preco.toLocaleString(
+    "pt-BR",
+    { style: "currency", currency: "BRL" }
+  );
+
+  const botao = document.createElement("button");
+  botao.type = "button";
+  botao.textContent = "Ver detalhes";
+
+  botao.addEventListener("click", function() {
+    alert("Produto: " + produto.nome);
+  });
+
+  card.append(imagem, nome, preco, botao);
+  return card;
+}
+
+// Exibe cada card no catálogo
+function mostrarProdutos() {
+  const lista = document.getElementById(
+    "lista-produtos"
+  );
+
+  produtos.forEach(function(produto) {
+    const card = criarCard(produto);
+    lista.appendChild(card);
+  });
+}
+
+mostrarProdutos();</template><template id="source-quarto">{
+  nome: "NOME DO PRODUTO",
+  preco: 0,
+  imagem: "imagens/nova-imagem.jpg"
+}</template><script>
+const slides=[...document.querySelectorAll('.slide')],nav=document.getElementById('nav');let current=0;
+slides.forEach((slide,i)=>{const b=document.createElement('button');b.className='nav-item';b.type='button';const n=document.createElement('span');n.className='num';n.textContent=String(i+1).padStart(2,'0');b.append(n,document.createTextNode(' '+slide.dataset.title));b.onclick=()=>show(i);nav.appendChild(b)});
+const items=[...nav.children];
+function show(i){current=Math.max(0,Math.min(i,slides.length-1));slides.forEach((s,j)=>s.classList.toggle('active',j===current));items.forEach((b,j)=>b.classList.toggle('active',j===current));document.getElementById('counter').textContent=(current+1)+' / '+slides.length;document.querySelector('#progress span').style.width=((current+1)/slides.length*100)+'%';document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=current===slides.length-1;window.scrollTo(0,0)}
+document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{const mode=b.dataset.mode;document.body.className=mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));if(mode==='lesson')show(current);else window.scrollTo(0,0)});
+document.addEventListener('keydown',e=>{if(document.body.classList.contains('lesson')&&!['BUTTON','INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&['ArrowRight','ArrowLeft'].includes(e.key)){e.preventDefault();show(current+(e.key==='ArrowRight'?1:-1))}});
+const sourceBlocks={'index.html':document.getElementById('source-html'),'style.css':document.getElementById('source-css'),'script.js':document.getElementById('source-js'),'quarto':document.getElementById('source-quarto')};
+document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const target=sourceBlocks[b.dataset.copy];try{await navigator.clipboard.writeText(target.textContent);const toast=document.getElementById('toast');toast.textContent='Código copiado!';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}catch(err){const range=document.createRange();range.selectNodeContents(target);const selection=getSelection();selection.removeAllRanges();selection.addRange(range);document.getElementById('toast').textContent='Selecione e copie o código destacado.';document.getElementById('toast').classList.add('show')}});
+show(0);</script></body></html>
