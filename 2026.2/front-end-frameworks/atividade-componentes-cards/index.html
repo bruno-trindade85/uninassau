@@ -56,7 +56,7 @@ imagens/teclado.jpg</pre><p>Se baixar arquivos em formato PNG ou WebP, altere a 
   &lt;footer&gt;
     &lt;p&gt;Minha Loja - 2026&lt;/p&gt;
   &lt;/footer&gt;
-  &lt;script src="script.js"&gt;&lt;\/script&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre></div><div class="callout"><strong>Salve o arquivo</strong> com o nome indicado, dentro da pasta <code>catalogo-produtos</code>.</div></section>
 <section class="slide" data-title="Entenda o HTML"><div class="eyebrow">Depois de copiar</div><h2>O que o HTML está fazendo?</h2><div class="grid g2"><div class="card blue"><h3>Estrutura semântica</h3><p><code>&lt;header&gt;</code> define o cabeçalho, <code>&lt;main&gt;</code> o conteúdo principal, <code>&lt;section&gt;</code> a área de produtos e <code>&lt;footer&gt;</code> o rodapé.</p></div><div class="card"><h3>Local dos cards</h3><p>A <code>div</code> com <code>id="lista-produtos"</code> começa vazia; o JavaScript adicionará os produtos nela.</p></div></div><div class="callout">O HTML <strong>não precisa conter três cards escritos à mão</strong>. Eles serão gerados pelo JavaScript.</div></section>
@@ -221,7 +221,7 @@ mostrarProdutos();</code></pre></div><div class="callout"><strong>Salve o arquiv
   &lt;footer&gt;
     &lt;p&gt;Minha Loja - 2026&lt;/p&gt;
   &lt;/footer&gt;
-  &lt;script src="script.js"&gt;&lt;\/script&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</template><template id="source-css">* {
   box-sizing: border-box;
@@ -362,5 +362,5 @@ document.getElementById('prev').onclick=()=>show(current-1);document.getElementB
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{const mode=b.dataset.mode;document.body.className=mode;document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));if(mode==='lesson')show(current);else window.scrollTo(0,0)});
 document.addEventListener('keydown',e=>{if(document.body.classList.contains('lesson')&&!['BUTTON','INPUT','TEXTAREA'].includes(document.activeElement.tagName)&&['ArrowRight','ArrowLeft'].includes(e.key)){e.preventDefault();show(current+(e.key==='ArrowRight'?1:-1))}});
 const sourceBlocks={'index.html':document.getElementById('source-html'),'style.css':document.getElementById('source-css'),'script.js':document.getElementById('source-js'),'quarto':document.getElementById('source-quarto')};
-document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const target=sourceBlocks[b.dataset.copy];try{await navigator.clipboard.writeText(target.textContent);const toast=document.getElementById('toast');toast.textContent='Código copiado!';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}catch(err){const range=document.createRange();range.selectNodeContents(target);const selection=getSelection();selection.removeAllRanges();selection.addRange(range);document.getElementById('toast').textContent='Selecione e copie o código destacado.';document.getElementById('toast').classList.add('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const target=sourceBlocks[b.dataset.copy];try{await navigator.clipboard.writeText(target.content.textContent);const toast=document.getElementById('toast');toast.textContent='Código copiado!';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}catch(err){const range=document.createRange();range.selectNodeContents(target.content);const selection=getSelection();selection.removeAllRanges();selection.addRange(range);document.getElementById('toast').textContent='Selecione e copie o código destacado.';document.getElementById('toast').classList.add('show')}});
 show(0);</script></body></html>
