@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Revisão para a prova da segunda unidade de Coding (2026.2): 20 perguntas abertas para estudar, responder, copiar e imprimir.">
+<title>REVISÃO PARA A PROVA DA SEGUNDA UNIDADE — Coding 2026.2</title>
+<style>
+:root{--blue:#0b57d0;--blue2:#1a73e8;--pale:#e8f0fe;--ink:#202124;--muted:#5f6368;--line:#dadce0;--soft:#f8fafd;--green:#137333;--r:20px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.55 Arial,"Helvetica Neue",sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #a8c7fa;outline-offset:3px}
+.topbar{position:fixed;z-index:50;inset:0 0 auto;height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 24px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+.brand-mark{width:34px;height:34px;flex:none;border-radius:50%;background:conic-gradient(#4285f4 0 25%,#34a853 0 50%,#fbbc04 0 75%,#ea4335 0);position:relative}
+.brand-mark:after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+.brand strong{display:block;line-height:1.1}
+.brand small{display:block;font-size:12px;color:var(--muted)}
+.header-link{font-size:14px;font-weight:700;color:var(--blue);text-decoration:none}
+.progress-bar{position:fixed;z-index:51;top:68px;left:0;right:0;height:4px;background:#eef0f2}
+.progress-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#4285f4,#0b57d0);transition:width .2s}
+.sidebar{position:fixed;left:0;top:72px;bottom:0;width:268px;overflow:auto;border-right:1px solid #f1f3f4;padding:22px 10px 36px;background:#fff}
+.nav-title{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px 14px}
+.nav-item{display:flex;gap:12px;align-items:center;padding:9px 12px;color:#3c4043;text-decoration:none;border-radius:0 25px 25px 0;font-size:13px;line-height:1.35}
+.nav-item:hover,.nav-item:focus-visible{background:#f1f3f4}
+.nav-number{color:var(--blue);font-size:12px;font-weight:700;min-width:22px}
+.content{margin-left:268px;padding:102px 30px 80px}
+.wrap{max-width:960px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+h1{font-size:clamp(31px,4.5vw,52px);line-height:1.12;letter-spacing:-.035em;margin:14px 0 14px}
+.lead{font-size:18px;color:#3c4043;max-width:790px;margin:0}
+.hero{margin-bottom:28px}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.badge{display:inline-block;border-radius:999px;padding:5px 12px;font-weight:700;font-size:12px;color:#0842a0;background:#d3e3fd}
+.instructions{padding:16px 20px;border-left:5px solid #4285f4;background:var(--soft);border-radius:4px 14px 14px 4px;margin:22px 0}
+.student-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:15px;margin:24px 0}
+.field-label{display:block;font-size:14px;font-weight:700;margin:0 0 7px}
+.student-field{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #bdc1c6;background:#fff}
+.counter{font-size:14px;color:var(--muted);white-space:nowrap;padding-bottom:12px;font-variant-numeric:tabular-nums}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}
+.primary,.secondary,.danger{border-radius:999px;padding:10px 16px;font-weight:700;font-size:14px}
+.primary{background:var(--blue);border:1px solid var(--blue);color:#fff}
+.primary:hover{background:#0842a0}
+.secondary{background:#fff;border:1px solid var(--line);color:var(--blue)}
+.secondary:hover{background:#f1f6fe}
+.danger{background:#fff;border:1px solid var(--line);color:#5f6368}
+.danger:hover{background:#fce8e6;color:#b3261e}
+.status{font-size:13px;color:var(--muted);min-height:24px;margin:4px 0 16px}
+.section-label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--blue);margin:36px 0 16px}
+.question-card{border:1px solid var(--line);border-radius:var(--r);padding:25px 28px;margin-bottom:18px;background:#fff;scroll-margin-top:96px;box-shadow:0 1px 2px #3c404310}
+.card-top{display:flex;align-items:center;gap:10px}
+.number{font-size:14px;font-weight:700;color:#0842a0;background:var(--pale);border-radius:11px;padding:5px 12px}
+.unit{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--muted)}
+.filled-marker{margin-left:auto;font-size:11px;font-weight:700;color:var(--green);background:#e6f4ea;border-radius:99px;padding:5px 9px}
+.topic{font-size:21px;line-height:1.35;letter-spacing:-.02em;margin:15px 0 12px}
+.prompt{font-size:19px;font-weight:600;line-height:1.5;margin:0 0 18px;color:#303134}
+.answer-label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px}
+textarea{resize:vertical;display:block;width:100%;min-height:125px;padding:14px 15px;border:1px solid #bdc1c6;border-radius:13px;background:#fbfcfe;color:var(--ink);line-height:1.5}
+textarea:focus{border-color:var(--blue);outline:2px solid #d3e3fd}
+textarea::placeholder{color:#80868b}
+.print-response{display:none}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+.bottom-actions{border-top:1px solid var(--line);margin-top:34px;padding-top:15px}
+@media(max-width:960px){.sidebar{display:none}.content{margin-left:0}}
+@media(max-width:600px){.topbar{padding:0 14px}.header-link{font-size:12px}.brand{font-size:14px}.brand small{font-size:10px}.content{padding:94px 14px 50px}.question-card{padding:20px 16px}.student-row{grid-template-columns:1fr}.counter{padding:0}.topic{font-size:19px}.prompt{font-size:18px}.actions button{flex-grow:1}}
+@media print{
+@page{size:A4;margin:14mm 13mm}
+html,body{background:#fff!important;color:#000;font-size:11pt}
+.topbar,.progress-bar,.sidebar,.actions,.status,.note,.answer-label,textarea,.filled-marker{display:none!important}
+.content{margin:0;padding:0}
+.wrap{max-width:none}
+.hero{margin:0 0 12mm}
+h1{font-size:23pt}
+.lead{font-size:11pt}
+.meta{margin-top:10px}
+.badge{color:#000;background:#fff;border:1px solid #bbb}
+.instructions{margin:12px 0;font-size:10pt;background:white;border-color:#bbb;padding:7px 11px}
+.student-row{display:block;margin:12px 0}
+.student-field{border:0;border-bottom:1px solid #999;border-radius:0;padding:3px 0}
+.counter{display:none}
+.section-label{margin:9mm 0 4mm;break-after:avoid}
+.question-card{break-inside:avoid;box-shadow:none;border:1px solid #bfc2c6;padding:12px 15px;margin-bottom:7mm}
+.topic{font-size:12pt;margin:8px 0}
+.prompt{font-size:11pt;margin:0 0 8px}
+.number{color:#000;background:#fff;border:1px solid #aaa;padding:2px 7px}
+.unit{color:#555}
+.print-response{display:block!important;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #bbb;border-radius:7px;min-height:26mm;padding:8px 10px;font-size:10pt}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../" aria-label="Voltar para a disciplina Coding">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span><strong>CODING — 2026.2</strong><small>Revisão • II Unidade</small></span>
+  </a>
+  <a class="header-link" href="../">Voltar para Coding</a>
+</header>
+<div class="progress-bar" aria-hidden="true"><span id="progress"></span></div>
+<aside class="sidebar" aria-label="Navegação entre os assuntos">
+  <p class="nav-title">Assuntos da revisão</p>
+  <nav><a class="nav-item" href="#pergunta-1"><span class="nav-number">01</span><span>Qualidade de código</span></a>
+<a class="nav-item" href="#pergunta-2"><span class="nav-number">02</span><span>Sistemas legados</span></a>
+<a class="nav-item" href="#pergunta-3"><span class="nav-number">03</span><span>Nomenclatura semântica</span></a>
+<a class="nav-item" href="#pergunta-4"><span class="nav-number">04</span><span>Código declarativo</span></a>
+<a class="nav-item" href="#pergunta-5"><span class="nav-number">05</span><span>Modularização de software</span></a>
+<a class="nav-item" href="#pergunta-6"><span class="nav-number">06</span><span>Baixo acoplamento</span></a>
+<a class="nav-item" href="#pergunta-7"><span class="nav-number">07</span><span>Code Smells</span></a>
+<a class="nav-item" href="#pergunta-8"><span class="nav-number">08</span><span>Code Smells</span></a>
+<a class="nav-item" href="#pergunta-9"><span class="nav-number">09</span><span>Tratamento de exceções</span></a>
+<a class="nav-item" href="#pergunta-10"><span class="nav-number">10</span><span>Legibilidade do código</span></a>
+<a class="nav-item" href="#pergunta-11"><span class="nav-number">11</span><span>Abstração</span></a>
+<a class="nav-item" href="#pergunta-12"><span class="nav-number">12</span><span>Programação Orientada a Objetos</span></a>
+<a class="nav-item" href="#pergunta-13"><span class="nav-number">13</span><span>Refatoração</span></a>
+<a class="nav-item" href="#pergunta-14"><span class="nav-number">14</span><span>Princípio da Responsabilidade Única (SRP)</span></a>
+<a class="nav-item" href="#pergunta-15"><span class="nav-number">15</span><span>Git</span></a>
+<a class="nav-item" href="#pergunta-16"><span class="nav-number">16</span><span>Git Add</span></a>
+<a class="nav-item" href="#pergunta-17"><span class="nav-number">17</span><span>Git Push</span></a>
+<a class="nav-item" href="#pergunta-18"><span class="nav-number">18</span><span>Git Branches</span></a>
+<a class="nav-item" href="#pergunta-19"><span class="nav-number">19</span><span>Git Merge</span></a>
+<a class="nav-item" href="#pergunta-20"><span class="nav-number">20</span><span>Git Commit</span></a></nav>
+</aside>
+<main class="content">
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Coding • 2026.2 • II Unidade</div>
+    <h1>REVISÃO PARA A PROVA DA SEGUNDA UNIDADE</h1>
+    <p class="lead">20 assuntos e 20 perguntas abertas. Leia cada tema e responda com suas próprias palavras.</p>
+    <div class="meta"><span class="badge">20 perguntas</span><span class="badge">Respostas discursivas</span><span class="badge">Sem gabarito</span></div>
+  </section>
+  <div class="instructions"><strong>Como usar:</strong> escreva no espaço abaixo de cada pergunta. Você pode copiar ou baixar suas respostas e usar o botão de impressão para imprimir ou escolher <strong>Salvar como PDF</strong> no navegador. O preenchimento é salvo somente neste navegador, neste dispositivo.</div>
+  <div class="student-row">
+    <div><label class="field-label" for="student">Nome (opcional)</label><input class="student-field" id="student" type="text" autocomplete="name" placeholder="Digite seu nome"></div>
+    <div class="counter" role="status" aria-live="polite" id="counter">0 de 20 respondidas</div>
+  </div>
+  <div class="actions">
+    <button class="primary" type="button" id="print-top">Imprimir / Salvar PDF</button>
+    <button class="secondary" type="button" id="copy-top">Copiar revisão e respostas</button>
+    <button class="secondary" type="button" id="download-top">Baixar respostas (.txt)</button>
+    <button class="danger" type="button" id="clear-top">Limpar respostas</button>
+  </div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+  <h2 class="section-label">Conteúdos da II Unidade</h2>
+  <article class="question-card" id="pergunta-1" data-question="1">
+  <div class="card-top"><span class="number">01</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Qualidade de código — legibilidade, organização e manutenção.</h2>
+  <p class="prompt">O que caracteriza um código de boa qualidade?</p>
+  <label class="answer-label" for="resposta-1">Sua resposta</label>
+  <textarea id="resposta-1" data-answer="1" rows="4" aria-label="Resposta à pergunta 1" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-2" data-question="2">
+  <div class="card-top"><span class="number">02</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Sistemas legados — características e dificuldades de manutenção.</h2>
+  <p class="prompt">O que é um sistema legado?</p>
+  <label class="answer-label" for="resposta-2">Sua resposta</label>
+  <textarea id="resposta-2" data-answer="2" rows="4" aria-label="Resposta à pergunta 2" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-3" data-question="3">
+  <div class="card-top"><span class="number">03</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Nomenclatura semântica — nomes significativos para variáveis e funções.</h2>
+  <p class="prompt">Por que utilizar nomes significativos em variáveis e funções?</p>
+  <label class="answer-label" for="resposta-3">Sua resposta</label>
+  <textarea id="resposta-3" data-answer="3" rows="4" aria-label="Resposta à pergunta 3" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-4" data-question="4">
+  <div class="card-top"><span class="number">04</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Código declarativo — descrição dos resultados desejados.</h2>
+  <p class="prompt">O que caracteriza o código declarativo?</p>
+  <label class="answer-label" for="resposta-4">Sua resposta</label>
+  <textarea id="resposta-4" data-answer="4" rows="4" aria-label="Resposta à pergunta 4" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-5" data-question="5">
+  <div class="card-top"><span class="number">05</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Modularização de software — divisão do sistema em módulos com responsabilidades definidas.</h2>
+  <p class="prompt">Qual é a finalidade da modularização de software?</p>
+  <label class="answer-label" for="resposta-5">Sua resposta</label>
+  <textarea id="resposta-5" data-answer="5" rows="4" aria-label="Resposta à pergunta 5" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-6" data-question="6">
+  <div class="card-top"><span class="number">06</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Baixo acoplamento — redução de dependências entre módulos.</h2>
+  <p class="prompt">O que significa baixo acoplamento entre módulos?</p>
+  <label class="answer-label" for="resposta-6">Sua resposta</label>
+  <textarea id="resposta-6" data-answer="6" rows="4" aria-label="Resposta à pergunta 6" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-7" data-question="7">
+  <div class="card-top"><span class="number">07</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Code Smells — identificação de sinais de problemas no código.</h2>
+  <p class="prompt">O que são Code Smells?</p>
+  <label class="answer-label" for="resposta-7">Sua resposta</label>
+  <textarea id="resposta-7" data-answer="7" rows="4" aria-label="Resposta à pergunta 7" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-8" data-question="8">
+  <div class="card-top"><span class="number">08</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Code Smells — funções extensas e múltiplas responsabilidades.</h2>
+  <p class="prompt">Por que uma função muito extensa pode ser considerada um Code Smell?</p>
+  <label class="answer-label" for="resposta-8">Sua resposta</label>
+  <textarea id="resposta-8" data-answer="8" rows="4" aria-label="Resposta à pergunta 8" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-9" data-question="9">
+  <div class="card-top"><span class="number">09</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Tratamento de exceções — identificação e gerenciamento de erros durante a execução.</h2>
+  <p class="prompt">Qual é a finalidade do tratamento de exceções?</p>
+  <label class="answer-label" for="resposta-9">Sua resposta</label>
+  <textarea id="resposta-9" data-answer="9" rows="4" aria-label="Resposta à pergunta 9" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-10" data-question="10">
+  <div class="card-top"><span class="number">10</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Legibilidade do código — indentação e padronização da formatação.</h2>
+  <p class="prompt">Por que a indentação e a formatação são importantes?</p>
+  <label class="answer-label" for="resposta-10">Sua resposta</label>
+  <textarea id="resposta-10" data-answer="10" rows="4" aria-label="Resposta à pergunta 10" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-11" data-question="11">
+  <div class="card-top"><span class="number">11</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Abstração — representação de características essenciais e ocultação de detalhes.</h2>
+  <p class="prompt">O que significa abstração no desenvolvimento de software?</p>
+  <label class="answer-label" for="resposta-11">Sua resposta</label>
+  <textarea id="resposta-11" data-answer="11" rows="4" aria-label="Resposta à pergunta 11" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-12" data-question="12">
+  <div class="card-top"><span class="number">12</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Programação Orientada a Objetos — organização de dados e comportamentos em objetos.</h2>
+  <p class="prompt">Como a Programação Orientada a Objetos organiza um sistema?</p>
+  <label class="answer-label" for="resposta-12">Sua resposta</label>
+  <textarea id="resposta-12" data-answer="12" rows="4" aria-label="Resposta à pergunta 12" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-13" data-question="13">
+  <div class="card-top"><span class="number">13</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Refatoração — melhoria da estrutura interna sem modificar o comportamento externo.</h2>
+  <p class="prompt">O que significa refatorar um código?</p>
+  <label class="answer-label" for="resposta-13">Sua resposta</label>
+  <textarea id="resposta-13" data-answer="13" rows="4" aria-label="Resposta à pergunta 13" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-14" data-question="14">
+  <div class="card-top"><span class="number">14</span><span class="unit">II UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Princípio da Responsabilidade Única (SRP) — responsabilidade de classes e módulos.</h2>
+  <p class="prompt">O que estabelece o Princípio da Responsabilidade Única?</p>
+  <label class="answer-label" for="resposta-14">Sua resposta</label>
+  <textarea id="resposta-14" data-answer="14" rows="4" aria-label="Resposta à pergunta 14" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+
+  <h2 class="section-label">Revisão de conteúdos da I Unidade</h2>
+  <article class="question-card" id="pergunta-15" data-question="15">
+  <div class="card-top"><span class="number">15</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git — conceitos e finalidade do controle de versão.</h2>
+  <p class="prompt">Qual é a principal finalidade do Git?</p>
+  <label class="answer-label" for="resposta-15">Sua resposta</label>
+  <textarea id="resposta-15" data-answer="15" rows="4" aria-label="Resposta à pergunta 15" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-16" data-question="16">
+  <div class="card-top"><span class="number">16</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git Add — área de preparação (staging area).</h2>
+  <p class="prompt">Para que serve o comando git add?</p>
+  <label class="answer-label" for="resposta-16">Sua resposta</label>
+  <textarea id="resposta-16" data-answer="16" rows="4" aria-label="Resposta à pergunta 16" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-17" data-question="17">
+  <div class="card-top"><span class="number">17</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git Push — envio de commits para repositórios remotos.</h2>
+  <p class="prompt">Qual é a função do comando git push?</p>
+  <label class="answer-label" for="resposta-17">Sua resposta</label>
+  <textarea id="resposta-17" data-answer="17" rows="4" aria-label="Resposta à pergunta 17" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-18" data-question="18">
+  <div class="card-top"><span class="number">18</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git Branches — ramificações e desenvolvimento paralelo.</h2>
+  <p class="prompt">Para que servem as branches no Git?</p>
+  <label class="answer-label" for="resposta-18">Sua resposta</label>
+  <textarea id="resposta-18" data-answer="18" rows="4" aria-label="Resposta à pergunta 18" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-19" data-question="19">
+  <div class="card-top"><span class="number">19</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git Merge — integração de alterações entre branches.</h2>
+  <p class="prompt">Qual é a finalidade do comando git merge?</p>
+  <label class="answer-label" for="resposta-19">Sua resposta</label>
+  <textarea id="resposta-19" data-answer="19" rows="4" aria-label="Resposta à pergunta 19" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+<article class="question-card" id="pergunta-20" data-question="20">
+  <div class="card-top"><span class="number">20</span><span class="unit">REVISÃO DA I UNIDADE</span><span class="filled-marker" aria-label="Resposta preenchida" hidden>Preenchida</span></div>
+  <h2 class="topic">Git Commit — importância de mensagens claras e descritivas.</h2>
+  <p class="prompt">Por que utilizar mensagens de commit claras e descritivas?</p>
+  <label class="answer-label" for="resposta-20">Sua resposta</label>
+  <textarea id="resposta-20" data-answer="20" rows="4" aria-label="Resposta à pergunta 20" placeholder="Escreva sua resposta aqui..." spellcheck="true"></textarea>
+  <div class="print-response" aria-hidden="true"></div>
+</article>
+  <div class="bottom-actions">
+    <p class="note">As respostas são de autoria do estudante. Esta página não avalia, não corrige e não envia informações ao professor.</p>
+    <div class="actions"><button class="primary" type="button" id="print-bottom">Imprimir / Salvar PDF</button><button class="secondary" type="button" id="copy-bottom">Copiar revisão e respostas</button><button class="secondary" type="button" id="download-bottom">Baixar respostas (.txt)</button></div>
+  </div>
+</div>
+</main>
+<script>
+(function(){
+  'use strict';
+  const KEY='uninassau-coding-revisao-ii-2026-2';
+  const answers=Array.from(document.querySelectorAll('[data-answer]'));
+  const cards=Array.from(document.querySelectorAll('.question-card'));
+  const student=document.getElementById('student');
+  const status=document.getElementById('status');
+  const counter=document.getElementById('counter');
+  const progress=document.getElementById('progress');
+  function notify(message){status.textContent=message;}
+  function snapshot(){const data={name:student.value,answers:{}};answers.forEach(function(el){data.answers[el.id]=el.value;});return data;}
+  function store(){try{localStorage.setItem(KEY,JSON.stringify(snapshot()));notify('Respostas salvas neste navegador.');}catch(e){notify('Salvamento automático indisponível. Use Copiar ou Baixar para guardar suas respostas.');}}
+  function refresh(){
+    let done=0;
+    answers.forEach(function(el){
+      const filled=el.value.trim().length>0;
+      if(filled)done++;
+      const marker=el.closest('.question-card').querySelector('.filled-marker');
+      marker.hidden=!filled;
+    });
+    counter.textContent=done+' de '+answers.length+' respondidas';
+    progress.style.width=(done/answers.length*100)+'%';
+  }
+  function restore(){
+    try{
+      const saved=JSON.parse(localStorage.getItem(KEY)||'null');
+      if(saved&&typeof saved==='object'){
+        student.value=typeof saved.name==='string'?saved.name:'';
+        answers.forEach(function(el){if(saved.answers&&typeof saved.answers[el.id]==='string')el.value=saved.answers[el.id];});
+        notify('As respostas deste dispositivo foram recuperadas.');
+      }
+    }catch(e){}
+    refresh();
+  }
+  function getPlainText(){
+    const lines=['REVISÃO PARA A PROVA DA SEGUNDA UNIDADE','Coding — 2026.2'];
+    if(student.value.trim())lines.push('Nome: '+student.value.trim());
+    cards.forEach(function(card,i){
+      lines.push('',''+(i+1)+'. '+card.querySelector('.topic').textContent.trim(),card.querySelector('.prompt').textContent.trim(),'Resposta: '+(card.querySelector('textarea').value.trim()||''));
+    });
+    return lines.join('\n');
+  }
+  async function copyAll(){
+    const s=getPlainText();
+    try{
+      if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(s);}
+      else{
+        const temp=document.createElement('textarea');temp.value=s;temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();
+        if(!document.execCommand('copy'))throw new Error('Cópia não suportada');
+        temp.remove();
+      }
+      notify('Revisão e respostas copiadas. Cole onde preferir.');
+    }catch(e){notify('Não foi possível copiar automaticamente. Tente usar o botão Baixar respostas.');}
+  }
+  function downloadAll(){
+    const blob=new Blob(['\ufeff'+getPlainText()],{type:'text/plain;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('a');link.href=url;link.download='revisao-prova-segunda-unidade-coding.txt';document.body.appendChild(link);link.click();link.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    notify('Arquivo de texto preparado para download.');
+  }
+  function preparePrint(){
+    cards.forEach(function(card){card.querySelector('.print-response').textContent=card.querySelector('textarea').value;});
+  }
+  function printAll(){preparePrint();window.print();}
+  function clearAll(){
+    if(!window.confirm('Apagar todas as respostas salvas neste dispositivo? Esta ação não pode ser desfeita.'))return;
+    student.value='';
+    answers.forEach(function(el){el.value='';});
+    try{localStorage.removeItem(KEY);}catch(e){}
+    refresh();notify('Respostas apagadas deste navegador.');
+  }
+  answers.forEach(function(el){el.addEventListener('input',function(){refresh();store();});});
+  student.addEventListener('input',store);
+  ['print-top','print-bottom'].forEach(function(id){document.getElementById(id).addEventListener('click',printAll);});
+  ['copy-top','copy-bottom'].forEach(function(id){document.getElementById(id).addEventListener('click',copyAll);});
+  ['download-top','download-bottom'].forEach(function(id){document.getElementById(id).addEventListener('click',downloadAll);});
+  document.getElementById('clear-top').addEventListener('click',clearAll);
+  window.addEventListener('beforeprint',preparePrint);
+  restore();
+})();
+</script>
+</body>
+</html>
